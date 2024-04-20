@@ -9,9 +9,13 @@ import Foundation
 import SwiftUI
 
 struct MapView: View {
+    
+    @State private var searchText: String = ""
+    
     var body: some View {
         VStack {
-            
+            NavigationBar()
+                .padding(10)
         }
     }
 }
