@@ -9,10 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    
+    @State var index = 0
    
     var body: some View {
         VStack {
-            NavigationBar()
+            NavigationBar(index: $index)
         }
     }
 }

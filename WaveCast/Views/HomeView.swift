@@ -10,11 +10,12 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var index = 0
     @State private var searchText: String = ""
     
     var body: some View {
         VStack {
-            NavigationBar()
+            NavigationBar(index: $index)
                 .padding(10)
         }
     }
