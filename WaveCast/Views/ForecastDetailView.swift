@@ -10,8 +10,12 @@ import SwiftUI
 
 struct ForecastDetailView: View {
     var body: some View {
-        VStack {
-            
+        NavigationView {
+            VStack {
+                Spacer()
+                CustomNavigationBar()
+                    .padding(10)
+            }
         }
     }
 }

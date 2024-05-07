@@ -9,15 +9,16 @@ import Foundation
 import SwiftUI
 
 struct HomeView: View {
-    
-    @State var index = 0
-    @State private var searchText: String = ""
-    
     var body: some View {
-        VStack {
-            NavigationBar(index: $index)
-                .padding(10)
+        NavigationView {
+            VStack {
+                Spacer()
+                Text("Contenido de la pantalla principal")
+                CustomNavigationBar()
+                    .padding(10)
+            }
         }
+        .navigationBarTitle("App Name")
     }
 }
 
