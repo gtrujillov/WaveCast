@@ -10,10 +10,11 @@ import SwiftUI
 
 struct ButtonView: View {
     let icon: String
+    let action: () -> Void
     
     var body: some View {
         Button(action: {
-            // Acción que se realizará al presionar el botón
+            action()
         }) {
             Image(systemName: icon)
                 .font(.system(size: 25))
@@ -25,8 +26,6 @@ struct ButtonView: View {
     }
 }
 
-struct ButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView(icon: "star")
-    }
+#Preview {
+    ButtonView(icon: "star", action: {})
 }

@@ -53,8 +53,6 @@ struct MapView: View {
                         .foregroundColor(.red)
                         .padding()
                     Spacer()
-                    CustomNavigationBar()
-                        .padding(10)
                 }
             }
         }

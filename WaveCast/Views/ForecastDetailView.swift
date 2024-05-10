@@ -10,11 +10,9 @@ import SwiftUI
 
 struct ForecastDetailView: View {
     var body: some View {
+        Text("Contenido de ForecastDetailView")
         NavigationView {
             VStack {
-                Spacer()
-                CustomNavigationBar()
-                    .padding(10)
             }
         }
     }

@@ -6,19 +6,19 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
+        
+    @State var indexSelected = 0
     
-    @State var index = 0
-   
     var body: some View {
         VStack {
-            
+            NavigationBarView(indexSelected: $indexSelected)
+            TabBarView(indexSelected: $indexSelected)
         }
     }
 }
 
 #Preview {
-   ContentView()
+    ContentView()
 }
