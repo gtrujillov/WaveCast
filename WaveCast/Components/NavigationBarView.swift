@@ -8,49 +8,33 @@
 import SwiftUI
 
 struct NavigationBarView: View {
+    
+    var title: String
     @Binding var indexSelected: Int
     
     var body: some View {
         ZStack {
-            switch indexSelected {
-            case 0 :
+            VStack(spacing: 0) {
                 NavigationView {
                     VStack {
-                        Text("Pantalla 1")
+                        switch indexSelected {
+                        case 0 :
+                            MapView()
+                        case 1 :
+                            Text("Pantalla 2")
+                        case 2 :
+                            Text("Pantalla 3")
+                        case 3 :
+                            Text("Pantalla 4")
+                        default:
+                            Text("Pantalla 5")
+                        }
                     }
-                }
-            case 1 :
-                NavigationView {
-                    VStack {
-                        Text("Pantalla 2")
-                    }
-                    .navigationTitle("Favoritos")
-                }
-            case 2 :
-                NavigationView {
-                    VStack {
-                        Text("Pantalla 3")
-                    }
-                    .navigationTitle("Aprende")
-                }
-            case 3 :
-                NavigationView {
-                    VStack {
-                        Text("Pantalla 4")
-                    }
-                    .navigationTitle("Noticias")
-                }
-            default:
-                NavigationView {
-                    VStack {
-                        Text("Pantalla 5")
-                    }
-                    .navigationTitle("Configuracion")
                 }
             }
         }
     }
 }
 #Preview {
-    NavigationBarView(indexSelected: .constant(0))
+    NavigationBarView(title: "", indexSelected: .constant(0))
 }

@@ -22,6 +22,7 @@ struct ButtonView: View {
                 .padding(10)
                 .background(.iconBlue)
                 .cornerRadius(15)
+                .shadow(color: .black, radius: 5, x: 0, y: 2)
         }
     }
 }

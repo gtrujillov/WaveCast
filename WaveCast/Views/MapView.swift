@@ -16,51 +16,43 @@ struct MapView: View {
     @State private var errorMessage = ""
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Map(coordinateRegion: $mapAPI.region,
-                    interactionModes: .all,
-                    showsUserLocation: false,
-                    userTrackingMode: nil,
-                    annotationItems: mapAPI.locations)
-                { location in
-                    MapAnnotation(coordinate: location.coordinate) {
-                        Button(action: {
-                            print("Button tapped for location: \(location.name)")
-                        }) {
-                            Image(systemName: "mappin.circle.fill")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.blue)
-                        }
-                        .onTapGesture {
-                            // Realiza la navegación aquí si es necesario
+            NavigationView {
+                ZStack {
+                    Map(coordinateRegion: $mapAPI.region,
+                        interactionModes: .all,
+                        showsUserLocation: false,
+                        userTrackingMode: nil,
+                        annotationItems: mapAPI.locations)
+                    { location in
+                        MapAnnotation(coordinate: location.coordinate) {
+                            Button(action: {
+                                print("Button tapped for location: \(location.name)")
+                            }) {
+                                Image(systemName: "mappin.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.blue)
+                            }
+                            .onTapGesture {
+                                // Realiza la navegación aquí si es necesario
+                            }
                         }
                     }
-                }
-                .ignoresSafeArea()
-                
-                VStack {
-                    SearchBarView(searchText: $searchText, searchAction: searchLocation)
-                        .padding(.top, 16) // Espacio en la parte superior
-                        .padding(.horizontal)
+                    .ignoresSafeArea()
                     
-                    if isLoading {
-                        ProgressView("Searching...")
+                    VStack {
+                        TopBarView(searchAction: searchLocation, title: "Mapa")
+                        Spacer()
                     }
-                    Text(errorMessage)
-                        .foregroundColor(.red)
-                        .padding()
-                    Spacer()
+                    .edgesIgnoringSafeArea(.top)
                 }
             }
         }
-    }
-    
-    private func searchLocation() {
-        mapAPI.getLocation(address: searchText, delta: 0.5)
-    }
+        
+        private func searchLocation(_ searchText: String) {
+            mapAPI.getLocation(address: searchText, delta: 0.5)
+        }
 }
 
 #Preview {
