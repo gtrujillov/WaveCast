@@ -10,6 +10,8 @@ import SwiftUI
 
 struct FavouriteView: View {
     
+    @State private var searchText = ""
+    
     let favourites = [
         "Beach",
         "Mountain",
@@ -21,28 +23,39 @@ struct FavouriteView: View {
         "Lake"
     ]
     
-    var body: some View {
-        ZStack {
-            ScrollView {
-                LazyVStack(spacing: 20) {
-                    ForEach(0..<favourites.count, id: \.self) { favourite in
-                        SurfForecastCardView(locationTitle: favourites[favourite], isFavorite: true, onTapExpand: {})
-                    }
-                }
-                .padding(.top, 110)
-                .padding(.horizontal, 15)
-            }
-            .scrollIndicators(.hidden)
-            Spacer()
-            VStack {
-                TopBarView(searchAction: searchFavoutites, title: "Mapa")
-                    .edgesIgnoringSafeArea(.top)
-            }
+    var filteredFavourites: [String] {
+        if searchText.isEmpty {
+            return favourites
+        } else {
+            return favourites.filter { $0.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
-    private func searchFavoutites(_ searchText: String) {
-        print("Hola")
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVStack(spacing: 20) {
+                    ForEach(0..<filteredFavourites.count, id: \.self) { favourite in
+                        SurfForecastCardView(
+                            locationTitle: filteredFavourites[favourite],
+                            isFavorite: true,
+                            onTapExpand: {}
+                        )
+                    }
+                }
+                .padding(15)
+            }
+            .scrollIndicators(.hidden)
+            .background(.yellowBackground)
+        }
+        .searchable(text: $searchText)
+        .onChange(of: searchText) { newValue in
+            searchFavourites(newValue)
+        }
+    }
+    
+    private func searchFavourites(_ searchText: String) {
+        self.searchText = searchText
     }
 }
 

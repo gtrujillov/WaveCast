@@ -14,45 +14,47 @@ struct MapView: View {
     @State private var searchText = ""
     @State private var isLoading = false
     @State private var errorMessage = ""
+    @State private var isShowingFavourites = false
+    @State private var selectedSpotTitle = ""
     
     var body: some View {
-            NavigationView {
-                ZStack {
-                    Map(coordinateRegion: $mapAPI.region,
-                        interactionModes: .all,
-                        showsUserLocation: false,
-                        userTrackingMode: nil,
-                        annotationItems: mapAPI.locations)
-                    { location in
-                        MapAnnotation(coordinate: location.coordinate) {
-                            Button(action: {
-                                print("Button tapped for location: \(location.name)")
-                            }) {
-                                Image(systemName: "mappin.circle.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 30, height: 30)
-                                    .foregroundColor(.blue)
-                            }
-                            .onTapGesture {
-                                // Realiza la navegación aquí si es necesario
-                            }
-                        }
+        NavigationView {
+            Map(coordinateRegion: $mapAPI.region,
+                interactionModes: .all,
+                showsUserLocation: false,
+                userTrackingMode: nil,
+                annotationItems: mapAPI.locations)
+            { location in
+                MapAnnotation(coordinate: location.coordinate) {
+                    Button(action: {
+                        selectedSpotTitle = location.name
+                        isShowingFavourites.toggle()
+                    }) {
+                        Image(systemName: "mappin")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(.red)
                     }
-                    .ignoresSafeArea()
-                    
-                    VStack {
-                        TopBarView(searchAction: searchLocation, title: "Mapa")
-                        Spacer()
+                    .onTapGesture {
+                        // Handle tap gesture if needed
                     }
-                    .edgesIgnoringSafeArea(.top)
                 }
             }
+            .background(.yellowBackground)
         }
-        
-        private func searchLocation(_ searchText: String) {
-            mapAPI.getLocation(address: searchText, delta: 0.5)
+        .searchable(text: $searchText)
+        .onChange(of: searchText) { newValue in
+            searchLocation(newValue)
         }
+        .sheet(isPresented: $isShowingFavourites) {
+            ForecastView()
+        }
+    }
+    
+    private func searchLocation(_ searchText: String) {
+        mapAPI.getLocation(address: searchText, delta: 0.5)
+    }
 }
 
 #Preview {

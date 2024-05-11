@@ -10,8 +10,11 @@ import SwiftUI
 
 struct LessonsView: View {
     var body: some View {
-        VStack {
-         
+        NavigationView {
+            VStack {
+                Text("Lessons")
+            }
+            .background(.yellowBackground)
         }
     }
 }

@@ -10,30 +10,11 @@ import SwiftUI
 struct TopBarView: View {
     
     @State private var searchText: String = ""
-    var searchAction: (String) -> Void
-    var title: String
+    var searchAction: (String) -> Void?
     
     var body: some View {
-        VStack(spacing: 0) {
-            if hasNotchOrDynamicInset() {
-                // Si hay notch o isla dinámica, coloca el título en la esquina izquierda
-                HStack(spacing: 0) {
-                    Text(title)
-                        .padding([.leading, .top], 25)
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-            } else {
-                // Si no hay notch ni isla dinámica, coloca el título en el centro superior
-                Text(title)
-                    .padding(.top, 20)
-                    .multilineTextAlignment(.center)
-                    .font(.title3)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-            }
+        GeometryReader { geometry in
+            let topPadding: CGFloat = hasNotchOrDynamicInset() ? 80 : 60
             
             HStack(spacing: 0) {
                 Image(.iconAppOriginal)
@@ -52,25 +33,20 @@ struct TopBarView: View {
                         .foregroundColor(.white)
                 }
             }
+            .padding(.top, topPadding)
+            .background(.barNavy)
         }
-        .background(.barNavy)
-        .clipShape(
-            RoundedCorner(cornerRadius: 25, corners: [.bottomLeft, .bottomRight])
-        )
-        .edgesIgnoringSafeArea(.top)
-        Spacer()
     }
     
-    // Función para detectar si el dispositivo tiene notch o isla dinámica
     func hasNotchOrDynamicInset() -> Bool {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             let topInset = windowScene.windows.first?.safeAreaInsets.top ?? 0
-            return topInset > 20 
+            return topInset > 20
         }
         return false
     }
 }
 
 #Preview {
-    TopBarView(searchAction: {_ in }, title: "Mapa")
+    TopBarView(searchAction: {_ in })
 }
