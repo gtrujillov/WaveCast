@@ -21,7 +21,7 @@ struct NavigationBarView: View {
                         case 0 :
                             MapView()
                         case 1 :
-                            Text("Pantalla 2")
+                            FavouriteView()
                         case 2 :
                             Text("Pantalla 3")
                         case 3 :
