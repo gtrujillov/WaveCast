@@ -22,7 +22,7 @@ class MapAPI: ObservableObject {
         self.locations.insert(Location(name: "Pin", coordinate: CLLocationCoordinate2D(latitude: 51.50, longitude: -0.1275)), at: 0)
     }
     
-    func getLocation(address: String, delta: Double) {
+    func getLocation(address: String, delta: Double, completion: @escaping (Result<(CLLocationCoordinate2D, String), Error>) -> Void) {
         networkManager.getLocation(address: address) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -32,10 +32,13 @@ class MapAPI: ObservableObject {
                     self.locations.removeAll()
                     self.locations.insert(newLocation, at: 0)
                     print("Successfully retrieved location.")
+                    completion(.success((coordinate, name)))
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
+                    completion(.failure(error))
                 }
             }
         }
     }
 }
+

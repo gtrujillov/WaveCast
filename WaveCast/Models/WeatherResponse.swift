@@ -10,9 +10,9 @@ import Foundation
 struct WeatherResponse: Codable {
     struct Hour: Codable {
         let time: String
-        let waveHeight: [String: Double]
-        let swellHeight: [String: Double]
+        let swellHeight: [String: Double]?
     }
+    
     let hours: [Hour]
     let meta: Meta
 }
@@ -29,3 +29,4 @@ struct Meta: Codable {
     let requestCount: Int
     let start: String
 }
+

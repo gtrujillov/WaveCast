@@ -9,22 +9,32 @@ import SwiftUI
 
 struct ForecastView: View {
     
+    @Binding var spotTitle: String
+    @State var waveHeight: [String] = []
+    
     var body: some View {
         ScrollView {
             VStack {
-                ForEach(1..<5) { index in
-                    ForecastDetailView(spotTitle: .constant("Spot \(index)"))
+                HStack {
+                    Text(spotTitle)
+                        .font(.title)
+                        .fontDesign(.monospaced)
+                        .padding(20)
+                        Spacer()
+                }
+                ForEach(0..<waveHeight.count) { index in
+                    ForecastDetailView(data: waveHeight[index], day: "")
                         .padding(.bottom, 20)
                 }
                 Spacer()
             }
             .padding()
             .ignoresSafeArea()
-            .background(.yellowBackground)
         }
+        .background(.yellowBackground)
     }
 }
 
 #Preview {
-    ForecastView()
+    ForecastView(spotTitle: .constant(""))
 }

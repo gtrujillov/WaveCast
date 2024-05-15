@@ -16,14 +16,14 @@ struct ForecastDetailView: View {
         "wind"
     ]
     
-    @State var data: String = "2m"
-    @Binding var spotTitle: String
+    var data: String
+    var day: String
     
     var body: some View {
         HStack {
             VStack{
                 HStack {
-                    Text(spotTitle)
+                    Text(day)
                         .font(.system(size: 15))
                         .padding([.leading, .bottom],10)
                     .multilineTextAlignment(.leading)
@@ -50,5 +50,5 @@ struct ForecastDetailView: View {
 }
 
 #Preview {
-    ForecastDetailView(spotTitle: .constant(""))
+    ForecastDetailView(data: "", day: "")
 }

@@ -55,13 +55,12 @@ class NetworkManager {
     
     let WEATHER_API_KEY = "9f7d60ec-4ade-11ed-a138-0242ac130002-9f7d6178-4ade-11ed-a138-0242ac130002"
     
-    private func getWeather(lat: Double, lng: String) async throws -> WeatherResponse {
+    func getWeather(lat: Double, lng: Double) async throws -> WeatherResponse {
         let url = URL(string: "https://api.stormglass.io/v2/weather/point")!
             var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
             urlComponents.queryItems = [
                 URLQueryItem(name: "lat", value: String(lat)),
                 URLQueryItem(name: "lng", value: String(lng)),
-                URLQueryItem(name: "params", value: "waveHeight"),
                 URLQueryItem(name: "params", value: "swellHeight")
             ]
             guard let finalURL = urlComponents.url else {
@@ -69,7 +68,7 @@ class NetworkManager {
             }
             
             var request = URLRequest(url: finalURL)
-            request.addValue("Bearer YOUR_API_KEY", forHTTPHeaderField: "Authorization") // Reemplaza YOUR_API_KEY con tu clave de API
+            request.addValue(WEATHER_API_KEY, forHTTPHeaderField: "Authorization")
             
             let (data, _) = try await URLSession.shared.data(for: request)
             return try JSONDecoder().decode(WeatherResponse.self, from: data)
