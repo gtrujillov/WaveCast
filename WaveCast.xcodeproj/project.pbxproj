@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F1C3FD82BF53BF500B09CAC /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C3FD72BF53BF500B09CAC /* WeatherResponse.swift */; };
 		8F26B8422BD43C970060BEA6 /* WaveCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8412BD43C970060BEA6 /* WaveCastApp.swift */; };
 		8F26B8442BD43C970060BEA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8432BD43C970060BEA6 /* ContentView.swift */; };
 		8F26B8462BD43C970060BEA6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8452BD43C970060BEA6 /* Item.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F1C3FD72BF53BF500B09CAC /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		8F26B83E2BD43C970060BEA6 /* WaveCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaveCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F26B8412BD43C970060BEA6 /* WaveCastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveCastApp.swift; sourceTree = "<group>"; };
 		8F26B8432BD43C970060BEA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				8F26B86E2BD46A150060BEA6 /* MapModel.swift */,
+				8F1C3FD72BF53BF500B09CAC /* WeatherResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				8F37456D2BEFE36B0030B0EE /* DetailCard.swift in Sources */,
 				8F37456A2BEFCEDF0030B0EE /* SurfForecastCardView.swift in Sources */,
 				8F26B86F2BD46A150060BEA6 /* MapModel.swift in Sources */,
+				8F1C3FD82BF53BF500B09CAC /* WeatherResponse.swift in Sources */,
 				8F3745652BEF9B9D0030B0EE /* TopBarView.swift in Sources */,
 				8F471C8F2BF288660027ACC5 /* ForectasDetailView.swift in Sources */,
 				8F26B8622BD455420060BEA6 /* MapView.swift in Sources */,
