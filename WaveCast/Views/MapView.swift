@@ -17,6 +17,7 @@ struct MapView: View {
     @State private var isShowingFavourites = false
     @State private var selectedSpotTitle = ""
     @State private var isSearching = false
+    @State private var showForecastView = false
     
     var networkManager = NetworkManager()
     @State private var weather: WeatherResponse?
@@ -31,7 +32,8 @@ struct MapView: View {
             { location in
                 MapAnnotation(coordinate: location.coordinate) {
                     Button(action: {
-                        isShowingFavourites.toggle()
+                        // Mostrar ForecastView cuando se toca el alfiler
+                        showForecastView.toggle()
                     }) {
                         Image(systemName: "mappin")
                             .resizable()
@@ -39,8 +41,12 @@ struct MapView: View {
                             .frame(width: 40, height: 40)
                             .foregroundColor(.red)
                     }
-                    .onTapGesture {
-                        // Handle tap gesture if needed
+                    .sheet(isPresented: $showForecastView) {
+                        if let weather = self.weather {
+                            ForecastView(spotTitle: $searchText, waveHeight: weather.hours.map { hour in
+                                "\(hour.swellHeight?["sg"] ?? 0)"
+                            }, onTapExpand: {})
+                        }
                     }
                 }
             }
@@ -49,13 +55,6 @@ struct MapView: View {
         .searchable(text: $searchText)
         .onSubmit(of: .search) {
             searchLocation()
-        }
-        .sheet(isPresented: $isShowingFavourites) {
-            if let weather = self.weather {
-                ForecastView(spotTitle: $searchText, waveHeight: weather.hours.map { hour in
-                    "\(hour.swellHeight?["sg"] ?? 0)"
-                })
-            }
         }
     }
     
@@ -71,7 +70,7 @@ struct MapView: View {
                         self.weather = weatherResponse
                         // Convertir el objeto WeatherResponse a datos JSON
                         let jsonEncoder = JSONEncoder()
-                        jsonEncoder.outputFormatting = .prettyPrinted // Opcional: formatear los datos JSON de manera legible
+                        jsonEncoder.outputFormatting = .prettyPrinted
                         let weatherData = try jsonEncoder.encode(weatherResponse)
                         if let jsonString = String(data: weatherData, encoding: .utf8) {
                             print("Respuesta JSON:", jsonString)
@@ -87,7 +86,7 @@ struct MapView: View {
             }
         }
     }
-
+    
 }
 
 #Preview {

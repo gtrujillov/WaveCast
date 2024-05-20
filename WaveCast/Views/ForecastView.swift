@@ -11,11 +11,19 @@ struct ForecastView: View {
     
     @Binding var spotTitle: String
     @State var waveHeight: [String] = []
+    var onTapExpand: () -> Void
     
     var body: some View {
         ScrollView {
             VStack {
                 HStack {
+                    Button(action: {
+                        onTapExpand()
+                    }) {
+                        Image(systemName: "star.fill")
+                            .font(.system(size: 30))
+                            .tint(.barNavy)
+                    }
                     Text(spotTitle)
                         .font(.title)
                         .fontDesign(.monospaced)
@@ -36,5 +44,5 @@ struct ForecastView: View {
 }
 
 #Preview {
-    ForecastView(spotTitle: .constant(""))
+    ForecastView(spotTitle: .constant(""), onTapExpand: {})
 }

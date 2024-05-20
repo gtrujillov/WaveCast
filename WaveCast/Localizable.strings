@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  WaveCast
+
+  Created by Gonzalo Trujillo Vallejo on 20/5/24.
+  
+*/
+
+/* Localizable.strings */
+
+/* Títulos */
+"wave_height_title" = "Altura de la Ola";
+"wave_period_title" = "Periodo de la Ola";
+"wave_direction_title" = "Dirección del Oleaje";
+"wind_title" = "Viento";
+"tide_title" = "Marea";
+"water_temperature_title" = "Temperatura del Agua";
+"primary_swell_title" = "Swell Primario";
+"secondary_swell_title" = "Swell Secundario";
+
+/* Descripciones */
+"wave_height_description" = "La altura de la ola se refiere a la distancia vertical desde la base de la ola hasta su cresta. Es un indicador clave del tamaño de las olas, lo que ayuda a los surfistas a evaluar si las condiciones son adecuadas para su nivel de habilidad.";
+"wave_period_description" = "El periodo de la ola es el tiempo (en segundos) entre la llegada de dos olas consecutivas. Un periodo más largo generalmente indica olas más poderosas y mejor formadas, lo cual es preferido por los surfistas experimentados.";
+"wave_direction_description" = "La dirección del oleaje es el ángulo desde el cual las olas están llegando a la costa. La orientación de la playa respecto a la dirección del oleaje afecta la calidad y la forma de las olas.";
+"wind_description" = "El viento se refiere a la velocidad y dirección del viento en la zona de surf. Puede afectar significativamente la calidad de las olas. Los surfistas consideran dos tipos principales de viento: Onshore (viento que sopla desde el mar hacia la costa, arruina la forma de las olas) y Offshore (viento que sopla desde la costa hacia el mar, mantiene las olas limpias y bien formadas).";
+"tide_description" = "La marea se refiere al nivel del mar, que sube y baja en ciclos regulares debido a la influencia gravitacional de la luna y el sol. Las diferentes condiciones de marea afectan cómo rompen las olas en diferentes playas. Algunas playas funcionan mejor con marea alta, mientras que otras con marea baja o media.";
+"water_temperature_description" = "La temperatura del agua es la medida de cuán caliente o fría está el agua en la zona de surf. Ayuda a los surfistas a decidir qué tipo de traje de neopreno usar para mantenerse cómodos y seguros en el agua.";
+"primary_swell_description" = "El swell primario se refiere al oleaje dominante que llega a la costa desde una dirección específica. Es el principal generador de olas en una sesión de surf y usualmente es el más grande y más predecible.";
+"secondary_swell_description" = "El swell secundario se refiere a un oleaje adicional que puede estar presente junto al swell primario. Aunque es menos dominante, puede afectar la formación y calidad de las olas.";

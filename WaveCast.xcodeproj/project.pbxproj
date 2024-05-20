@@ -31,6 +31,10 @@
 		8F37456D2BEFE36B0030B0EE /* DetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F37456C2BEFE36B0030B0EE /* DetailCard.swift */; };
 		8F471C8F2BF288660027ACC5 /* ForectasDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F471C8E2BF288660027ACC5 /* ForectasDetailView.swift */; };
 		8F471C912BF289660027ACC5 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F471C902BF289660027ACC5 /* ForecastView.swift */; };
+		8F4B8F332BFBD39B0064AA30 /* LessosCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B8F322BFBD39B0064AA30 /* LessosCardView.swift */; };
+		8F4B8F352BFBD65D0064AA30 /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B8F342BFBD65D0064AA30 /* LessonModel.swift */; };
+		8FCC610A2BFBD10A0025608C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FCC61092BFBD10A0025608C /* Localizable.strings */; };
+		8FCC610C2BFBD1270025608C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCC610B2BFBD1270025608C /* String+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		8F37456C2BEFE36B0030B0EE /* DetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCard.swift; sourceTree = "<group>"; };
 		8F471C8E2BF288660027ACC5 /* ForectasDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForectasDetailView.swift; sourceTree = "<group>"; };
 		8F471C902BF289660027ACC5 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
+		8F4B8F322BFBD39B0064AA30 /* LessosCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessosCardView.swift; sourceTree = "<group>"; };
+		8F4B8F342BFBD65D0064AA30 /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
+		8FCC61092BFBD10A0025608C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8FCC610B2BFBD1270025608C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,7 @@
 				8F26B8532BD43E930060BEA6 /* Resources */,
 				8F26B8542BD43EC90060BEA6 /* ViewModels */,
 				8F26B8512BD43E7C0060BEA6 /* Views */,
+				8FCC61092BFBD10A0025608C /* Localizable.strings */,
 			);
 			path = WaveCast;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 		8F26B8512BD43E7C0060BEA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F4B8F2F2BFBD32E0064AA30 /* LessonsCard */,
 				8F37456B2BEFE3500030B0EE /* ForecastDetailView */,
 				8F26B85D2BD449F70060BEA6 /* HomeView.swift */,
 				8F26B8612BD455420060BEA6 /* MapView.swift */,
@@ -136,6 +146,7 @@
 			children = (
 				8F26B86E2BD46A150060BEA6 /* MapModel.swift */,
 				8F1C3FD72BF53BF500B09CAC /* WeatherResponse.swift */,
+				8F4B8F342BFBD65D0064AA30 /* LessonModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				8F3745672BEF9D9D0030B0EE /* Shape+.swift */,
+				8FCC610B2BFBD1270025608C /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +203,14 @@
 				8F471C8E2BF288660027ACC5 /* ForectasDetailView.swift */,
 			);
 			path = ForecastDetailView;
+			sourceTree = "<group>";
+		};
+		8F4B8F2F2BFBD32E0064AA30 /* LessonsCard */ = {
+			isa = PBXGroup;
+			children = (
+				8F4B8F322BFBD39B0064AA30 /* LessosCardView.swift */,
+			);
+			path = LessonsCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F26B84B2BD43C990060BEA6 /* Preview Assets.xcassets in Resources */,
+				8FCC610A2BFBD10A0025608C /* Localizable.strings in Resources */,
 				8F26B8482BD43C990060BEA6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,12 +291,14 @@
 				8F3745652BEF9B9D0030B0EE /* TopBarView.swift in Sources */,
 				8F471C8F2BF288660027ACC5 /* ForectasDetailView.swift in Sources */,
 				8F26B8622BD455420060BEA6 /* MapView.swift in Sources */,
+				8F4B8F352BFBD65D0064AA30 /* LessonModel.swift in Sources */,
 				8F3745632BEF97B40030B0EE /* TabBarView.swift in Sources */,
 				8F26B8662BD455A40060BEA6 /* NewsView.swift in Sources */,
 				8F26B8442BD43C970060BEA6 /* ContentView.swift in Sources */,
 				8F3745612BEF95D20030B0EE /* NavigationBarView.swift in Sources */,
 				8F26B86C2BD467C60060BEA6 /* SearchBar.swift in Sources */,
 				8F471C912BF289660027ACC5 /* ForecastView.swift in Sources */,
+				8F4B8F332BFBD39B0064AA30 /* LessosCardView.swift in Sources */,
 				8F26B8462BD43C970060BEA6 /* Item.swift in Sources */,
 				8F26B85E2BD449F70060BEA6 /* HomeView.swift in Sources */,
 				8F3745682BEF9D9D0030B0EE /* Shape+.swift in Sources */,
@@ -283,6 +306,7 @@
 				8F291A572BDED68C00B76549 /* NetworkManager.swift in Sources */,
 				8F26B8592BD441720060BEA6 /* ButtonView.swift in Sources */,
 				8F291A582BDED68C00B76549 /* MapAPI.swift in Sources */,
+				8FCC610C2BFBD1270025608C /* String+.swift in Sources */,
 				8F26B8642BD4558C0060BEA6 /* LessonsView.swift in Sources */,
 				8F26B8422BD43C970060BEA6 /* WaveCastApp.swift in Sources */,
 			);
