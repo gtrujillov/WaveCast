@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailCard: View {
     
-    @State var data: String = ""
+    @State var data: Double
     @State var icon: String
     
     var body: some View {
@@ -17,7 +17,7 @@ struct DetailCard: View {
             Image(systemName: icon)
                 .padding(.top, 20)
                 .font(.system(size: 30))
-            Text(data)
+            Text("\(data)")
                 .padding(.vertical, 20)
         }
         .padding(.horizontal, 15)
@@ -34,5 +34,5 @@ struct DetailCard: View {
 }
 
 #Preview {
-    DetailCard(data: "2m", icon: "wind")
+    DetailCard(data: 0.0, icon: "wind")
 }

@@ -10,10 +10,11 @@ import SwiftUI
 struct TabBarView: View {
     
     let iconos = [
-        "map.circle",
-        "star.fill",
-        "info.circle.fill",
-        "newspaper.fill"
+        "mappin.circle",
+        "magnifyingglass.circle",
+        "star.circle",
+        "book.circle",
+        "info.circle"
     ]
     
     @Binding var indexSelected: Int
@@ -21,23 +22,22 @@ struct TabBarView: View {
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
-            HStack {
+            HStack(spacing: 0) {
                 ForEach(0..<iconos.count, id: \.self) { numbers in
                     Spacer()
                     ButtonView(icon: iconos[numbers]) {
                         self.indexSelected = numbers
                     }
+                    Spacer()
                 }
-                Spacer()
             }
-            .padding(.top, 20)
-            .padding(.bottom, 40)
+            .padding(.vertical, 20)
             .background(.barNavy)
             .clipShape(
-                RoundedCorner(cornerRadius: 25, corners: [.topLeft, .topRight])
+                RoundedCorner(cornerRadius: 25, corners: .allCorners)
             )
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .padding(5)
     }
 }
 

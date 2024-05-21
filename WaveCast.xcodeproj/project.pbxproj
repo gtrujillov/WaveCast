@@ -19,7 +19,6 @@
 		8F26B8642BD4558C0060BEA6 /* LessonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8632BD4558C0060BEA6 /* LessonsView.swift */; };
 		8F26B8662BD455A40060BEA6 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8652BD455A40060BEA6 /* NewsView.swift */; };
 		8F26B8682BD455F80060BEA6 /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8672BD455F80060BEA6 /* FavouriteView.swift */; };
-		8F26B86C2BD467C60060BEA6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B86B2BD467C60060BEA6 /* SearchBar.swift */; };
 		8F26B86F2BD46A150060BEA6 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B86E2BD46A150060BEA6 /* MapModel.swift */; };
 		8F291A572BDED68C00B76549 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F291A552BDED68C00B76549 /* NetworkManager.swift */; };
 		8F291A582BDED68C00B76549 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F291A562BDED68C00B76549 /* MapAPI.swift */; };
@@ -32,6 +31,8 @@
 		8F42D9202BFCFC9200A50C3D /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F42D91F2BFCFC9200A50C3D /* LottieAnimation.swift */; };
 		8F42D9232BFCFD7100A50C3D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8F42D9222BFCFD7100A50C3D /* Lottie */; };
 		8F42D9252BFCFED500A50C3D /* mapAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F42D9242BFCFED500A50C3D /* mapAnimation.json */; };
+		8F42D9272BFD064B00A50C3D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F42D9262BFD064B00A50C3D /* MapViewModel.swift */; };
+		8F42D9292BFD2C3D00A50C3D /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F42D9282BFD2C3D00A50C3D /* Double+.swift */; };
 		8F471C8F2BF288660027ACC5 /* ForectasDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F471C8E2BF288660027ACC5 /* ForectasDetailView.swift */; };
 		8F471C912BF289660027ACC5 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F471C902BF289660027ACC5 /* ForecastView.swift */; };
 		8F4B8F332BFBD39B0064AA30 /* LessosCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B8F322BFBD39B0064AA30 /* LessosCardView.swift */; };
@@ -54,7 +55,6 @@
 		8F26B8632BD4558C0060BEA6 /* LessonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsView.swift; sourceTree = "<group>"; };
 		8F26B8652BD455A40060BEA6 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		8F26B8672BD455F80060BEA6 /* FavouriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
-		8F26B86B2BD467C60060BEA6 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		8F26B86D2BD469C20060BEA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8F26B86E2BD46A150060BEA6 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		8F291A552BDED68C00B76549 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -67,6 +67,8 @@
 		8F37456C2BEFE36B0030B0EE /* DetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCard.swift; sourceTree = "<group>"; };
 		8F42D91F2BFCFC9200A50C3D /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		8F42D9242BFCFED500A50C3D /* mapAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapAnimation.json; sourceTree = "<group>"; };
+		8F42D9262BFD064B00A50C3D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		8F42D9282BFD2C3D00A50C3D /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		8F471C8E2BF288660027ACC5 /* ForectasDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForectasDetailView.swift; sourceTree = "<group>"; };
 		8F471C902BF289660027ACC5 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		8F4B8F322BFBD39B0064AA30 /* LessosCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessosCardView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		8F26B8542BD43EC90060BEA6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8F42D9262BFD064B00A50C3D /* MapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -177,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				8F26B8582BD441720060BEA6 /* ButtonView.swift */,
-				8F26B86B2BD467C60060BEA6 /* SearchBar.swift */,
 				8F3745602BEF95D20030B0EE /* NavigationBarView.swift */,
 				8F3745622BEF97B40030B0EE /* TabBarView.swift */,
 				8F3745642BEF9B9D0030B0EE /* TopBarView.swift */,
@@ -200,6 +202,7 @@
 			children = (
 				8F3745672BEF9D9D0030B0EE /* Shape+.swift */,
 				8FCC610B2BFBD1270025608C /* String+.swift */,
+				8F42D9282BFD2C3D00A50C3D /* Double+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,17 +317,18 @@
 				8F3745652BEF9B9D0030B0EE /* TopBarView.swift in Sources */,
 				8F471C8F2BF288660027ACC5 /* ForectasDetailView.swift in Sources */,
 				8F26B8622BD455420060BEA6 /* MapView.swift in Sources */,
+				8F42D9292BFD2C3D00A50C3D /* Double+.swift in Sources */,
 				8F4B8F352BFBD65D0064AA30 /* LessonModel.swift in Sources */,
 				8F3745632BEF97B40030B0EE /* TabBarView.swift in Sources */,
 				8F26B8662BD455A40060BEA6 /* NewsView.swift in Sources */,
 				8F26B8442BD43C970060BEA6 /* ContentView.swift in Sources */,
 				8F3745612BEF95D20030B0EE /* NavigationBarView.swift in Sources */,
-				8F26B86C2BD467C60060BEA6 /* SearchBar.swift in Sources */,
 				8F471C912BF289660027ACC5 /* ForecastView.swift in Sources */,
 				8F4B8F332BFBD39B0064AA30 /* LessosCardView.swift in Sources */,
 				8F26B8462BD43C970060BEA6 /* Item.swift in Sources */,
 				8F26B85E2BD449F70060BEA6 /* HomeView.swift in Sources */,
 				8F3745682BEF9D9D0030B0EE /* Shape+.swift in Sources */,
+				8F42D9272BFD064B00A50C3D /* MapViewModel.swift in Sources */,
 				8F26B8682BD455F80060BEA6 /* FavouriteView.swift in Sources */,
 				8F291A572BDED68C00B76549 /* NetworkManager.swift in Sources */,
 				8F26B8592BD441720060BEA6 /* ButtonView.swift in Sources */,
@@ -391,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -448,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

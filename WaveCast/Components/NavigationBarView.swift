@@ -17,22 +17,26 @@ struct NavigationBarView: View {
         NavigationView {
             VStack {
                 switch indexSelected {
-                case 0 :
+                case 0:
                     MapView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.large)
-                case 1 :
+                        .navigationBarTitleDisplayMode(.inline)
+                case 1:
+                    EmptyView()
+                        .navigationTitle(title)
+                        .navigationBarTitleDisplayMode(.inline)
+                case 2:
                     FavouriteView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.large)
-                case 2 :
+                        .navigationBarTitleDisplayMode(.inline)
+                case 3:
                     LessonsView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.large)
-                case 3 :
-                    NewsView()
+                        .navigationBarTitleDisplayMode(.inline)
+                case 4:
+                    EmptyView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.large)
+                        .navigationBarTitleDisplayMode(.inline)
                 default:
                     Text("")
                 }

@@ -15,7 +15,6 @@ struct HomeView: View {
                 
             }
         }
-        .navigationBarTitle("App Name")
     }
 }
 

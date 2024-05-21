@@ -13,7 +13,7 @@ struct LottieAnimation: View {
         LottieView(animation: .named("mapAnimation.json"))
             .playbackMode(.playing(.toProgress(1, loopMode: .loop)))
             .animationSpeed(2)
-            .frame(width: 40,height: 40)
+            .frame(width: 50,height: 50)
     }
 }
 

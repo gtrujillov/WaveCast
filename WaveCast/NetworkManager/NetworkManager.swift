@@ -61,7 +61,8 @@ class NetworkManager {
             urlComponents.queryItems = [
                 URLQueryItem(name: "lat", value: String(lat)),
                 URLQueryItem(name: "lng", value: String(lng)),
-                URLQueryItem(name: "params", value: "swellHeight")
+                URLQueryItem(name: "params", value: "swellHeight"),
+                URLQueryItem(name: "params", value: "waveHeight")
             ]
             guard let finalURL = urlComponents.url else {
                 throw URLError(.badURL)

@@ -10,7 +10,7 @@ import SwiftUI
 struct ForecastView: View {
     
     @Binding var spotTitle: String
-    @State var waveHeight: [String] = []
+    @State var weather: [WeatherResponse.Hour] = []
     var onTapExpand: () -> Void
     
     var body: some View {
@@ -28,11 +28,17 @@ struct ForecastView: View {
                         .font(.title)
                         .fontDesign(.monospaced)
                         .padding(20)
-                        Spacer()
+                    Spacer()
                 }
-                ForEach(0..<waveHeight.count) { index in
-                    ForecastDetailView(data: waveHeight[index], day: "")
+                ForEach(weather) { hour in
+                    if let swellHeightValue = hour.swellHeight?["sg"], let waveHeightValue = hour.waveHeight?["noaa"] {
+                        ForecastDetailView(
+                            swellHeight: swellHeightValue,
+                            waveHeight: waveHeightValue,
+                            day: ""
+                        )
                         .padding(.bottom, 20)
+                    }
                 }
                 Spacer()
             }

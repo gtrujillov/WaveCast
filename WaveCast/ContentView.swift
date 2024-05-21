@@ -10,7 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @State var indexSelected = 0
-    @State private var titles = ["Mapa", "Favoritos", "Aprende", "Noticias"]
+    
+    @State private var titles = [
+        "Mapa",
+        "Favoritos",
+        "Aprende",
+        "Saber más"
+    ]
     @State private var searchText = ""
     
     var body: some View {

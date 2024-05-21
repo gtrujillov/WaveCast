@@ -16,7 +16,8 @@ struct ForecastDetailView: View {
         "wind"
     ]
     
-    var data: String
+    var swellHeight: Double
+    var waveHeight: Double
     var day: String
     
     var body: some View {
@@ -33,7 +34,7 @@ struct ForecastDetailView: View {
                     ForEach(0..<weatherIcons.count, id: \.self) { iconName in
                         HStack {
                             Spacer()
-                            DetailCard(data: data,
+                            DetailCard(data: weatherIcons[iconName] == "wind" ? swellHeight : waveHeight,
                                        icon: weatherIcons[iconName]
                             )
                             Spacer()
@@ -50,5 +51,9 @@ struct ForecastDetailView: View {
 }
 
 #Preview {
-    ForecastDetailView(data: "", day: "")
+    ForecastDetailView(
+        swellHeight: 1.0,
+        waveHeight: 2.0,
+        day: ""
+    )
 }
