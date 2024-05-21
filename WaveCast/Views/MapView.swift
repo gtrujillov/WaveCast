@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Lottie
 
 struct MapView: View {
     
@@ -32,14 +33,10 @@ struct MapView: View {
             { location in
                 MapAnnotation(coordinate: location.coordinate) {
                     Button(action: {
-                        // Mostrar ForecastView cuando se toca el alfiler
                         showForecastView.toggle()
                     }) {
-                        Image(systemName: "mappin")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 40, height: 40)
-                            .foregroundColor(.red)
+                        //Lottie animation
+                        LottieAnimation()
                     }
                     .sheet(isPresented: $showForecastView) {
                         if let weather = self.weather {
