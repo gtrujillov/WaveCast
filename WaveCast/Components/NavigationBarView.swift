@@ -11,7 +11,6 @@ struct NavigationBarView: View {
     
     var title: String
     @Binding var indexSelected: Int
-    let gradient = LinearGradient(colors: [Color.orange, Color.green], startPoint: .top, endPoint: .bottom)
     
     var body: some View {
         NavigationView {
@@ -20,23 +19,23 @@ struct NavigationBarView: View {
                 case 0:
                     MapView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitleDisplayMode(.automatic)
                 case 1:
                     EmptyView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitleDisplayMode(.automatic)
                 case 2:
                     FavouriteView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitleDisplayMode(.automatic)
                 case 3:
                     LessonsView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitleDisplayMode(.automatic)
                 case 4:
                     EmptyView()
                         .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitleDisplayMode(.automatic)
                 default:
                     Text("")
                 }

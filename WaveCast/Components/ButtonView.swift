@@ -10,23 +10,31 @@ import SwiftUI
 
 struct ButtonView: View {
     let icon: String
+    let title: String
     let action: () -> Void
     
     var body: some View {
         Button(action: {
             action()
         }) {
-            Image(systemName: icon)
-                .font(.system(size: 25))
-                .foregroundColor(.black)
-                .padding(10)
-                .background(.iconBlue)
-                .cornerRadius(15)
-                .shadow(color: .black, radius: 5, x: 0, y: 2)
+            VStack {
+                Image(systemName: icon)
+                    .font(.system(size: 25))
+                    .foregroundColor(.black)
+                    .padding(10)
+                    .background(Color.iconBlue)
+                    .cornerRadius(15)
+                    .shadow(color: .black, radius: 5, x: 0, y: 2)
+                Text(title)
+                    .foregroundColor(.white)
+                    .padding(2)
+                    .font(.system(size: 8))
+                    .fontDesign(.monospaced)
+            }
         }
     }
 }
 
 #Preview {
-    ButtonView(icon: "star", action: {})
+    ButtonView(icon: "star", title: "Mapa", action: {})
 }

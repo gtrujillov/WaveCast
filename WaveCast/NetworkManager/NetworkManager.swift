@@ -57,22 +57,24 @@ class NetworkManager {
     
     func getWeather(lat: Double, lng: Double) async throws -> WeatherResponse {
         let url = URL(string: "https://api.stormglass.io/v2/weather/point")!
-            var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-            urlComponents.queryItems = [
-                URLQueryItem(name: "lat", value: String(lat)),
-                URLQueryItem(name: "lng", value: String(lng)),
-                URLQueryItem(name: "params", value: "swellHeight"),
-                URLQueryItem(name: "params", value: "waveHeight")
-            ]
-            guard let finalURL = urlComponents.url else {
-                throw URLError(.badURL)
-            }
-            
-            var request = URLRequest(url: finalURL)
-            request.addValue(WEATHER_API_KEY, forHTTPHeaderField: "Authorization")
-            
-            let (data, _) = try await URLSession.shared.data(for: request)
-            return try JSONDecoder().decode(WeatherResponse.self, from: data)
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "lat", value: String(lat)),
+            URLQueryItem(name: "lng", value: String(lng)),
+            URLQueryItem(name: "params", value: "swellHeight"),
+            URLQueryItem(name: "params", value: "waveHeight"),
+            URLQueryItem(name: "params", value: "wavePeriod"),
+            URLQueryItem(name: "params", value: "waterTemperature")
+        ]
+        guard let finalURL = urlComponents.url else {
+            throw URLError(.badURL)
+        }
+        
+        var request = URLRequest(url: finalURL)
+        request.addValue(WEATHER_API_KEY, forHTTPHeaderField: "Authorization")
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        return try JSONDecoder().decode(WeatherResponse.self, from: data)
     }
 }
 

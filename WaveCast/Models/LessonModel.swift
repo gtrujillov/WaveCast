@@ -9,6 +9,7 @@ import Foundation
 
 struct LessonModel: Identifiable {
     let id = UUID()
+    let icon: String
     let titleKey: String
     let descriptionKey: String
 }

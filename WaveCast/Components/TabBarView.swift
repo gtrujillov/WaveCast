@@ -17,6 +17,14 @@ struct TabBarView: View {
         "info.circle"
     ]
     
+    let titulos = [
+           "Mapa",
+           "Buscar",
+           "Favoritos",
+           "Lecciones",
+           "Info"
+       ]
+    
     @Binding var indexSelected: Int
     
     var body: some View {
@@ -25,9 +33,9 @@ struct TabBarView: View {
             HStack(spacing: 0) {
                 ForEach(0..<iconos.count, id: \.self) { numbers in
                     Spacer()
-                    ButtonView(icon: iconos[numbers]) {
-                        self.indexSelected = numbers
-                    }
+                    ButtonView(icon: iconos[numbers], title: titulos[numbers]) {
+                                            self.indexSelected = numbers
+                                        }
                     Spacer()
                 }
             }

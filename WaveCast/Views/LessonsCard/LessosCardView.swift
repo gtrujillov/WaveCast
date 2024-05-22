@@ -11,13 +11,19 @@ import SwiftUI
 
 struct LessonsCardView: View {
     
+    var icon: String
     var title: String
     var description: String
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(title)
-                .bold()
+            
+            HStack {
+                Image(systemName: icon)
+                Text(title)
+                    .bold()
+                    .monospaced()
+            }
             Text(description)
                 .multilineTextAlignment(.leading)
         }
@@ -30,6 +36,7 @@ struct LessonsCardView: View {
 
 #Preview {
     LessonsCardView(
+        icon: "water.waves",
         title: "wave_height_title".localized,
         description: "wave_height_description".localized
     )

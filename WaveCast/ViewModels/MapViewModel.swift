@@ -20,7 +20,6 @@ class MapViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String = ""
     @Published var isShowingFavourites: Bool = false
-    @Published var selectedSpotTitle: String = ""
     @Published var isSearching: Bool = false
     @Published var showForecastView: Bool = false
     @Published var weather: WeatherResponse?

@@ -13,6 +13,10 @@ struct MapView: View {
     
     @ObservedObject private var viewModel = MapViewModel()
     
+    init(viewModel: MapViewModel = MapViewModel()) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         NavigationView {
             Map(coordinateRegion: $viewModel.region,
@@ -30,7 +34,7 @@ struct MapView: View {
                     .sheet(isPresented: $viewModel.showForecastView) {
                         if let weather = viewModel.weather {
                             ForecastView(
-                                spotTitle: $viewModel.selectedSpotTitle,
+                                spotTitle: $viewModel.searchText,
                                 weather: weather.hours,
                                 onTapExpand: {}
                             )
@@ -43,9 +47,6 @@ struct MapView: View {
         }
         .searchable(text: $viewModel.searchText)
         .onSubmit(of: .search) {
-            viewModel.searchLocation()
-        }
-        .onChange(of: viewModel.searchText) { newValue in
             viewModel.searchLocation()
         }
     }

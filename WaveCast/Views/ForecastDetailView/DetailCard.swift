@@ -17,7 +17,7 @@ struct DetailCard: View {
             Image(systemName: icon)
                 .padding(.top, 20)
                 .font(.system(size: 30))
-            Text("\(data)")
+            Text(data.roundedToString(decimalPlaces: 2))
                 .padding(.vertical, 20)
         }
         .padding(.horizontal, 15)

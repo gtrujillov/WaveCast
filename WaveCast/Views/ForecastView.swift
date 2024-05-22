@@ -10,13 +10,24 @@ import SwiftUI
 struct ForecastView: View {
     
     @Binding var spotTitle: String
-    @State var weather: [WeatherResponse.Hour] = []
     var onTapExpand: () -> Void
+    @ObservedObject private var viewModel = ForecastViewModel()
+    
+    init(spotTitle: Binding<String>, weather: [WeatherResponse.Hour], onTapExpand: @escaping () -> Void, viewModel: ForecastViewModel = ForecastViewModel()) {
+        self._spotTitle = spotTitle
+        self.onTapExpand = onTapExpand
+        self.viewModel.updateWeatherData(weather)
+    }
     
     var body: some View {
         ScrollView {
             VStack {
                 HStack {
+                    Text(spotTitle)
+                        .font(.title)
+                        .fontDesign(.monospaced)
+                        .padding(20)
+                    Spacer()
                     Button(action: {
                         onTapExpand()
                     }) {
@@ -24,18 +35,15 @@ struct ForecastView: View {
                             .font(.system(size: 30))
                             .tint(.barNavy)
                     }
-                    Text(spotTitle)
-                        .font(.title)
-                        .fontDesign(.monospaced)
-                        .padding(20)
-                    Spacer()
                 }
-                ForEach(weather) { hour in
-                    if let swellHeightValue = hour.swellHeight?["sg"], let waveHeightValue = hour.waveHeight?["noaa"] {
+                ForEach(viewModel.groupAndSelectOneForecastPerDay().sorted(by: { $0.0 < $1.0 }), id: \.2.time) { day, dayNumber, hour in
+                    if let windSpeedValue = hour.windSpeed?["sg"], let waveHeightValue = hour.waveHeight?["noaa"], let wavePeriodValue = hour.wavePeriod?["noaa"], let waterTemperatureValue = hour.waterTemperature?["noaa"] {
                         ForecastDetailView(
-                            swellHeight: swellHeightValue,
+                            windSpeed: windSpeedValue,
                             waveHeight: waveHeightValue,
-                            day: ""
+                            wavePeriod: wavePeriodValue,
+                            waterTemperature: waterTemperatureValue,
+                            day: "\(day) \(dayNumber)"
                         )
                         .padding(.bottom, 20)
                     }
@@ -50,5 +58,10 @@ struct ForecastView: View {
 }
 
 #Preview {
-    ForecastView(spotTitle: .constant(""), onTapExpand: {})
+    ForecastView(
+        spotTitle: .constant("Guincho"),
+        weather: [],
+        onTapExpand: {}
+    )
 }
+

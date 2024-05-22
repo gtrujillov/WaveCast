@@ -11,41 +11,57 @@ import Foundation
 struct WeatherResponse: Codable {
     let hours: [Hour]
     let meta: Meta
-
+    
     // MARK: - Hour
     struct Hour: Codable, Identifiable {
         let id: UUID
         let time: String
-        var swellHeight: [String: Double]?
+        var windSpeed: [String: Double]?
         var waveHeight: [String: Double]?
-
+        var wavePeriod: [String: Double]?
+        var waterTemperature: [String: Double]?
+        var dayOfWeek: String
+        
         enum CodingKeys: String, CodingKey {
-            case time, swellHeight, waveHeight
+            case time, windSpeed, waveHeight, wavePeriod, waterTemperature
         }
-
-        init(time: String, swellHeight: [String: Double]?, waveHeight: [String: Double]?) {
+        
+        init(
+            time: String,
+            windSpeed: [String: Double]?,
+            waveHeight: [String: Double]?,
+            wavePeriod: [String: Double]?,
+            waterTemperature: [String: Double]?
+        ) {
             self.id = UUID()
             self.time = time
-            self.swellHeight = swellHeight?.mapValues { $0.rounded(toPlaces: 1) }
-            self.waveHeight = waveHeight?.mapValues { $0.rounded(toPlaces: 1) }
+            self.windSpeed = windSpeed
+            self.waveHeight = waveHeight
+            self.wavePeriod = wavePeriod
+            self.waterTemperature = waterTemperature
+            self.dayOfWeek = time.dayOfWeek()
         }
-
+        
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let time = try container.decode(String.self, forKey: .time)
-            let swellHeight = try container.decodeIfPresent([String: Double].self, forKey: .swellHeight)
+            let windSpeed = try container.decodeIfPresent([String: Double].self, forKey: .windSpeed)
             let waveHeight = try container.decodeIfPresent([String: Double].self, forKey: .waveHeight)
-            self.init(time: time, swellHeight: swellHeight, waveHeight: waveHeight)
+            let wavePeriod = try container.decodeIfPresent([String: Double].self, forKey: .wavePeriod)
+            let waterTemperature = try container.decodeIfPresent([String: Double].self, forKey: .waterTemperature)
+            self.init(time: time, windSpeed: windSpeed, waveHeight: waveHeight,wavePeriod: wavePeriod,waterTemperature: waterTemperature)
         }
         
         func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(time, forKey: .time)
-            try container.encodeIfPresent(swellHeight, forKey: .swellHeight)
+            try container.encodeIfPresent(windSpeed, forKey: .windSpeed)
             try container.encodeIfPresent(waveHeight, forKey: .waveHeight)
+            try container.encodeIfPresent(wavePeriod, forKey: .wavePeriod)
+            try container.encodeIfPresent(waterTemperature, forKey: .waterTemperature)
         }
     }
-
+    
     // MARK: - Meta
     struct Meta: Codable {
         let cost: Int
@@ -56,7 +72,7 @@ struct WeatherResponse: Codable {
         let params: [String]
         let requestCount: Int
         let start: String
-
+        
         enum CodingKeys: String, CodingKey {
             case cost, dailyQuota, end, lat, lng, params, requestCount, start
         }
