@@ -17,6 +17,7 @@ struct ContentView: View {
         "Aprende",
         "Saber más"
     ]
+    
     @State private var searchText = ""
     
     var body: some View {

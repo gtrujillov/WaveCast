@@ -10,10 +10,23 @@ import Foundation
 class ForecastViewModel: ObservableObject {
     @Published var weather: [WeatherResponse.Hour] = []
     
+    // Método para actualizar los datos meteorológicos y filtrar solo los pronósticos a las 12 PM
     func updateWeatherData(_ weather: [WeatherResponse.Hour]) {
-        self.weather = weather
+        let calendar = Calendar.current
+        let isoFormatter = ISO8601DateFormatter()
+        
+        // Filtrar solo las entradas a las 12 PM de cada día
+        let filteredWeather = weather.filter { hour in
+            if let date = isoFormatter.date(from: hour.time) {
+                return calendar.component(.hour, from: date) == 12
+            }
+            return false
+        }
+        
+        self.weather = filteredWeather
     }
     
+    // Método para agrupar y seleccionar un pronóstico por día
     func groupAndSelectOneForecastPerDay() -> [(String, Int, WeatherResponse.Hour)] {
         var groupedAndSelectedForecasts: [(String, Int, WeatherResponse.Hour)] = []
         let sortedWeather = weather.sorted(by: { $0.time < $1.time })
@@ -32,8 +45,8 @@ class ForecastViewModel: ObservableObject {
         
         // Iterar sobre cada hora del pronóstico
         for hour in sortedWeather {
-            // Intentar convertir la cadena de fecha/hora en un objeto Date utilizando el formateador de fecha personalizado
-            if let date = DateFormatter.waveCastFormatter().date(from: hour.time) {
+            // Intentar convertir la cadena de fecha/hora en un objeto Date utilizando el formateador ISO 8601
+            if let date = ISO8601DateFormatter().date(from: hour.time) {
                 let dayNumber = calendar.component(.day, from: date)
                 let weekday = calendar.component(.weekday, from: date)
                 let dayName = spanishWeekdaySymbols[weekday - 1] // Restamos 1 porque los días de la semana comienzan desde 1
@@ -48,5 +61,4 @@ class ForecastViewModel: ObservableObject {
         
         return groupedAndSelectedForecasts
     }
-    
 }

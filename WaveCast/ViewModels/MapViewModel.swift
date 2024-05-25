@@ -29,6 +29,7 @@ class MapViewModel: ObservableObject {
     
     func searchLocation() {
         guard !searchText.isEmpty else { return }
+        locations = []
         isLoading = true
         mapAPI.getLocation(address: searchText, delta: 0.5) { [weak self] result in
             guard let self = self else { return }

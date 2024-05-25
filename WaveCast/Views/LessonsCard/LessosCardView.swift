@@ -20,10 +20,10 @@ struct LessonsCardView: View {
             
             HStack {
                 Image(systemName: icon)
+                    .foregroundColor(.iconBurgundy)
                 Text(title)
                     .bold()
-                    .monospaced()
-            }
+                    .monospaced()            }
             Text(description)
                 .multilineTextAlignment(.leading)
         }

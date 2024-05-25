@@ -10,11 +10,9 @@
 		8F1C3FD82BF53BF500B09CAC /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C3FD72BF53BF500B09CAC /* WeatherResponse.swift */; };
 		8F26B8422BD43C970060BEA6 /* WaveCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8412BD43C970060BEA6 /* WaveCastApp.swift */; };
 		8F26B8442BD43C970060BEA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8432BD43C970060BEA6 /* ContentView.swift */; };
-		8F26B8462BD43C970060BEA6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8452BD43C970060BEA6 /* Item.swift */; };
 		8F26B8482BD43C990060BEA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F26B8472BD43C990060BEA6 /* Assets.xcassets */; };
 		8F26B84B2BD43C990060BEA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F26B84A2BD43C990060BEA6 /* Preview Assets.xcassets */; };
 		8F26B8592BD441720060BEA6 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8582BD441720060BEA6 /* ButtonView.swift */; };
-		8F26B85E2BD449F70060BEA6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B85D2BD449F70060BEA6 /* HomeView.swift */; };
 		8F26B8622BD455420060BEA6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8612BD455420060BEA6 /* MapView.swift */; };
 		8F26B8642BD4558C0060BEA6 /* LessonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8632BD4558C0060BEA6 /* LessonsView.swift */; };
 		8F26B8662BD455A40060BEA6 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26B8652BD455A40060BEA6 /* NewsView.swift */; };
@@ -39,20 +37,34 @@
 		8F4B8F352BFBD65D0064AA30 /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B8F342BFBD65D0064AA30 /* LessonModel.swift */; };
 		8F4EF9302BFE63A700F06E2A /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4EF92F2BFE63A700F06E2A /* ForecastViewModel.swift */; };
 		8F4EF9332BFE6E9B00F06E2A /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4EF9322BFE6E9B00F06E2A /* DateFormatter+.swift */; };
+		8F5AE9CA2C03742700A6CEB6 /* WaveCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5AE9C92C03742700A6CEB6 /* WaveCastTests.swift */; };
+		8F5AE9D22C0375E600A6CEB6 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5AE9D12C0375E600A6CEB6 /* MockURLSession.swift */; };
+		8F5AE9D42C03761F00A6CEB6 /* MapAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5AE9D32C03761F00A6CEB6 /* MapAPITests.swift */; };
+		8F5AE9D62C037F1400A6CEB6 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5AE9D52C037F1400A6CEB6 /* NetworkManagerTests.swift */; };
+		8F83F4072C02451800B0084E /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F4062C02451800B0084E /* Favourites.swift */; };
+		8F83F4092C028B9200B0084E /* SurfForecastCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F4082C028B9200B0084E /* SurfForecastCardViewModel.swift */; };
 		8FCC610A2BFBD10A0025608C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FCC61092BFBD10A0025608C /* Localizable.strings */; };
 		8FCC610C2BFBD1270025608C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCC610B2BFBD1270025608C /* String+.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F5AE9CB2C03742700A6CEB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F26B8362BD43C970060BEA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F26B83D2BD43C970060BEA6;
+			remoteInfo = WaveCast;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8F1C3FD72BF53BF500B09CAC /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		8F26B83E2BD43C970060BEA6 /* WaveCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaveCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F26B8412BD43C970060BEA6 /* WaveCastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveCastApp.swift; sourceTree = "<group>"; };
 		8F26B8432BD43C970060BEA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		8F26B8452BD43C970060BEA6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8F26B8472BD43C990060BEA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F26B84A2BD43C990060BEA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F26B8582BD441720060BEA6 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		8F26B85D2BD449F70060BEA6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8F26B8612BD455420060BEA6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8F26B8632BD4558C0060BEA6 /* LessonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsView.swift; sourceTree = "<group>"; };
 		8F26B8652BD455A40060BEA6 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
@@ -77,6 +89,13 @@
 		8F4B8F342BFBD65D0064AA30 /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
 		8F4EF92F2BFE63A700F06E2A /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		8F4EF9322BFE6E9B00F06E2A /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
+		8F5AE9C72C03742700A6CEB6 /* WaveCastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaveCastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F5AE9C92C03742700A6CEB6 /* WaveCastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveCastTests.swift; sourceTree = "<group>"; };
+		8F5AE9D12C0375E600A6CEB6 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		8F5AE9D32C03761F00A6CEB6 /* MapAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPITests.swift; sourceTree = "<group>"; };
+		8F5AE9D52C037F1400A6CEB6 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		8F83F4062C02451800B0084E /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
+		8F83F4082C028B9200B0084E /* SurfForecastCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfForecastCardViewModel.swift; sourceTree = "<group>"; };
 		8FCC61092BFBD10A0025608C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8FCC610B2BFBD1270025608C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +109,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F5AE9C42C03742700A6CEB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				8F26B8402BD43C970060BEA6 /* WaveCast */,
+				8F5AE9C82C03742700A6CEB6 /* WaveCastTests */,
 				8F26B83F2BD43C970060BEA6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				8F26B83E2BD43C970060BEA6 /* WaveCast.app */,
+				8F5AE9C72C03742700A6CEB6 /* WaveCastTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,7 +142,6 @@
 			children = (
 				8F26B86D2BD469C20060BEA6 /* Info.plist */,
 				8F26B8432BD43C970060BEA6 /* ContentView.swift */,
-				8F26B8452BD43C970060BEA6 /* Item.swift */,
 				8F26B8412BD43C970060BEA6 /* WaveCastApp.swift */,
 				8F42D91E2BFCFC6900A50C3D /* Animations */,
 				8F26B8552BD43F020060BEA6 /* Components */,
@@ -142,7 +169,6 @@
 			children = (
 				8F4B8F2F2BFBD32E0064AA30 /* LessonsCard */,
 				8F37456B2BEFE3500030B0EE /* ForecastDetailView */,
-				8F26B85D2BD449F70060BEA6 /* HomeView.swift */,
 				8F26B8612BD455420060BEA6 /* MapView.swift */,
 				8F26B8632BD4558C0060BEA6 /* LessonsView.swift */,
 				8F26B8652BD455A40060BEA6 /* NewsView.swift */,
@@ -158,6 +184,7 @@
 				8F26B86E2BD46A150060BEA6 /* MapModel.swift */,
 				8F1C3FD72BF53BF500B09CAC /* WeatherResponse.swift */,
 				8F4B8F342BFBD65D0064AA30 /* LessonModel.swift */,
+				8F83F4062C02451800B0084E /* Favourites.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +204,7 @@
 			children = (
 				8F42D9262BFD064B00A50C3D /* MapViewModel.swift */,
 				8F4EF92F2BFE63A700F06E2A /* ForecastViewModel.swift */,
+				8F83F4082C028B9200B0084E /* SurfForecastCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -188,7 +216,6 @@
 				8F3745602BEF95D20030B0EE /* NavigationBarView.swift */,
 				8F3745622BEF97B40030B0EE /* TabBarView.swift */,
 				8F3745642BEF9B9D0030B0EE /* TopBarView.swift */,
-				8F3745692BEFCEDF0030B0EE /* SurfForecastCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -218,6 +245,7 @@
 			children = (
 				8F37456C2BEFE36B0030B0EE /* DetailCard.swift */,
 				8F471C8E2BF288660027ACC5 /* ForectasDetailView.swift */,
+				8F3745692BEFCEDF0030B0EE /* SurfForecastCardView.swift */,
 			);
 			path = ForecastDetailView;
 			sourceTree = "<group>";
@@ -236,6 +264,25 @@
 				8F4B8F322BFBD39B0064AA30 /* LessosCardView.swift */,
 			);
 			path = LessonsCard;
+			sourceTree = "<group>";
+		};
+		8F5AE9C82C03742700A6CEB6 /* WaveCastTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F5AE9D02C0375D000A6CEB6 /* Mock */,
+				8F5AE9C92C03742700A6CEB6 /* WaveCastTests.swift */,
+				8F5AE9D32C03761F00A6CEB6 /* MapAPITests.swift */,
+				8F5AE9D52C037F1400A6CEB6 /* NetworkManagerTests.swift */,
+			);
+			path = WaveCastTests;
+			sourceTree = "<group>";
+		};
+		8F5AE9D02C0375D000A6CEB6 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				8F5AE9D12C0375E600A6CEB6 /* MockURLSession.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +308,24 @@
 			productReference = 8F26B83E2BD43C970060BEA6 /* WaveCast.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8F5AE9C62C03742700A6CEB6 /* WaveCastTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F5AE9CD2C03742700A6CEB6 /* Build configuration list for PBXNativeTarget "WaveCastTests" */;
+			buildPhases = (
+				8F5AE9C32C03742700A6CEB6 /* Sources */,
+				8F5AE9C42C03742700A6CEB6 /* Frameworks */,
+				8F5AE9C52C03742700A6CEB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F5AE9CC2C03742700A6CEB6 /* PBXTargetDependency */,
+			);
+			name = WaveCastTests;
+			productName = WaveCastTests;
+			productReference = 8F5AE9C72C03742700A6CEB6 /* WaveCastTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -273,6 +338,10 @@
 				TargetAttributes = {
 					8F26B83D2BD43C970060BEA6 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					8F5AE9C62C03742700A6CEB6 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 8F26B83D2BD43C970060BEA6;
 					};
 				};
 			};
@@ -293,6 +362,7 @@
 			projectRoot = "";
 			targets = (
 				8F26B83D2BD43C970060BEA6 /* WaveCast */,
+				8F5AE9C62C03742700A6CEB6 /* WaveCastTests */,
 			);
 		};
 /* End PBXProject section */
@@ -306,6 +376,13 @@
 				8FCC610A2BFBD10A0025608C /* Localizable.strings in Resources */,
 				8F42D9252BFCFED500A50C3D /* mapAnimation.json in Resources */,
 				8F26B8482BD43C990060BEA6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F5AE9C52C03742700A6CEB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,8 +409,7 @@
 				8F3745612BEF95D20030B0EE /* NavigationBarView.swift in Sources */,
 				8F471C912BF289660027ACC5 /* ForecastView.swift in Sources */,
 				8F4B8F332BFBD39B0064AA30 /* LessosCardView.swift in Sources */,
-				8F26B8462BD43C970060BEA6 /* Item.swift in Sources */,
-				8F26B85E2BD449F70060BEA6 /* HomeView.swift in Sources */,
+				8F83F4092C028B9200B0084E /* SurfForecastCardViewModel.swift in Sources */,
 				8F4EF9302BFE63A700F06E2A /* ForecastViewModel.swift in Sources */,
 				8F3745682BEF9D9D0030B0EE /* Shape+.swift in Sources */,
 				8F42D9272BFD064B00A50C3D /* MapViewModel.swift in Sources */,
@@ -341,6 +417,7 @@
 				8F291A572BDED68C00B76549 /* NetworkManager.swift in Sources */,
 				8F26B8592BD441720060BEA6 /* ButtonView.swift in Sources */,
 				8F291A582BDED68C00B76549 /* MapAPI.swift in Sources */,
+				8F83F4072C02451800B0084E /* Favourites.swift in Sources */,
 				8FCC610C2BFBD1270025608C /* String+.swift in Sources */,
 				8F26B8642BD4558C0060BEA6 /* LessonsView.swift in Sources */,
 				8F26B8422BD43C970060BEA6 /* WaveCastApp.swift in Sources */,
@@ -348,7 +425,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F5AE9C32C03742700A6CEB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5AE9D62C037F1400A6CEB6 /* NetworkManagerTests.swift in Sources */,
+				8F5AE9D42C03761F00A6CEB6 /* MapAPITests.swift in Sources */,
+				8F5AE9D22C0375E600A6CEB6 /* MockURLSession.swift in Sources */,
+				8F5AE9CA2C03742700A6CEB6 /* WaveCastTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F5AE9CC2C03742700A6CEB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F26B83D2BD43C970060BEA6 /* WaveCast */;
+			targetProxy = 8F5AE9CB2C03742700A6CEB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8F26B84C2BD43C990060BEA6 /* Debug */ = {
@@ -530,6 +626,44 @@
 			};
 			name = Release;
 		};
+		8F5AE9CE2C03742700A6CEB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DU6PQT532X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pec.WaveCastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaveCast.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WaveCast";
+			};
+			name = Debug;
+		};
+		8F5AE9CF2C03742700A6CEB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DU6PQT532X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pec.WaveCastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaveCast.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WaveCast";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -547,6 +681,15 @@
 			buildConfigurations = (
 				8F26B84F2BD43C990060BEA6 /* Debug */,
 				8F26B8502BD43C990060BEA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F5AE9CD2C03742700A6CEB6 /* Build configuration list for PBXNativeTarget "WaveCastTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F5AE9CE2C03742700A6CEB6 /* Debug */,
+				8F5AE9CF2C03742700A6CEB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

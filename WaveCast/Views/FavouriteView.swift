@@ -7,27 +7,19 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct FavouriteView: View {
-    
+    @Environment(\.modelContext) var context
     @State private var searchText = ""
+    @State private var isDeleted: Bool?
+    @Query(sort: \Favourites.spotName) var favouriteSpots: [Favourites] = []
     
-    let favourites = [
-        "Beach",
-        "Mountain",
-        "City",
-        "Lake",
-        "Beach",
-        "Mountain",
-        "City",
-        "Lake"
-    ]
-    
-    var filteredFavourites: [String] {
+    var filteredFavourites: [Favourites] {
         if searchText.isEmpty {
-            return favourites
+            return favouriteSpots
         } else {
-            return favourites.filter { $0.localizedCaseInsensitiveContains(searchText) }
+            return favouriteSpots.filter { $0.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
@@ -35,20 +27,31 @@ struct FavouriteView: View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 20) {
-                    ForEach(0..<filteredFavourites.count, id: \.self) { favourite in
-                        SurfForecastCardView(
-                            locationTitle: filteredFavourites[favourite],
-                            isFavorite: true,
-                            onTapExpand: {}
-                        )
+                    if favouriteSpots.isEmpty {
+                        Text("No tienes spots de surf favoritos")
+                            .foregroundColor(.gray)
+                            .padding()
+                    } else {
+                        ForEach(filteredFavourites) { favourite in
+                            SurfForecastCardView(
+                                locationTitle: favourite.spotName ?? "",
+                                starFill: favourite.fillStar ?? false,
+                                latitude: favourite.latitude ?? 0.0,
+                                longitude: favourite.longitude ?? 0.0,
+                                isFavorite: true) {
+                                    context.delete(favourite)
+                                }
+                        }
                     }
                 }
-                .padding(15)
+                .padding(10)
             }
+            .padding()
+            .padding(.bottom, 120)
             .scrollIndicators(.hidden)
             .background(.yellowBackground)
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText, prompt: "Buscar")
         .onChange(of: searchText) { newValue in
             searchFavourites(newValue)
         }

@@ -12,6 +12,7 @@ import Lottie
 struct MapView: View {
     
     @ObservedObject private var viewModel = MapViewModel()
+    @State private var selectedCoordinate: CLLocationCoordinate2D?
     
     init(viewModel: MapViewModel = MapViewModel()) {
         self.viewModel = viewModel
@@ -24,17 +25,20 @@ struct MapView: View {
                 showsUserLocation: false,
                 userTrackingMode: nil,
                 annotationItems: viewModel.locations) { location in
+                
                 MapAnnotation(coordinate: location.coordinate) {
                     Button(action: {
+                        selectedCoordinate = location.coordinate
                         viewModel.showForecastView.toggle()
                     }) {
-                        // Lottie animation
-                        LottieAnimation()
+                        LottieAnimation(lottieAnimationName: "mapAnimation.json")
                     }
                     .sheet(isPresented: $viewModel.showForecastView) {
                         if let weather = viewModel.weather {
                             ForecastView(
                                 spotTitle: $viewModel.searchText,
+                                latitude: selectedCoordinate?.latitude ?? 0.0,
+                                longitude: selectedCoordinate?.longitude ?? 0.0,
                                 weather: weather.hours,
                                 onTapExpand: {}
                             )
@@ -45,7 +49,7 @@ struct MapView: View {
                 .edgesIgnoringSafeArea(.bottom)
                 .background(.yellowBackground)
         }
-        .searchable(text: $viewModel.searchText)
+        .searchable(text: $viewModel.searchText, prompt: "Buscar")
         .onSubmit(of: .search) {
             viewModel.searchLocation()
         }

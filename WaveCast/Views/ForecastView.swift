@@ -6,38 +6,61 @@
 //
 
 import SwiftUI
+import SwiftData
+import CoreLocation
 
 struct ForecastView: View {
     
-    @Binding var spotTitle: String
-    var onTapExpand: () -> Void
+    @Environment(\.modelContext) var context
+    @Environment(\.dismiss) private var dismiss
+    @Query(sort: \Favourites.spotName) var favouriteSpots: [Favourites] = []
+    
     @ObservedObject private var viewModel = ForecastViewModel()
     
-    init(spotTitle: Binding<String>, weather: [WeatherResponse.Hour], onTapExpand: @escaping () -> Void, viewModel: ForecastViewModel = ForecastViewModel()) {
+    @State private var isFavourite: Bool = false
+    @Binding var spotTitle: String
+    var latitude: CLLocationDegrees
+    var longitude: CLLocationDegrees
+    
+    var onTapExpand: () -> Void
+    
+    init(
+        spotTitle: Binding<String>,
+        latitude: CLLocationDegrees,
+        longitude: CLLocationDegrees,
+        weather: [WeatherResponse.Hour],
+        onTapExpand: @escaping () -> Void,
+        viewModel: ForecastViewModel = ForecastViewModel()
+    ) {
         self._spotTitle = spotTitle
+        self.latitude = latitude
+        self.longitude = longitude
         self.onTapExpand = onTapExpand
         self.viewModel.updateWeatherData(weather)
     }
-    
+
     var body: some View {
         ScrollView {
             VStack {
                 HStack {
                     Text(spotTitle)
                         .font(.title)
-                        .fontDesign(.monospaced)
+                        .monospaced()
                         .padding(20)
                     Spacer()
                     Button(action: {
-                        onTapExpand()
+                        toggleFavourite()
                     }) {
-                        Image(systemName: "star.fill")
+                        Image(systemName: isFavourite ? "star.fill" : "star")
                             .font(.system(size: 30))
-                            .tint(.barNavy)
+                            .tint(.blue)
                     }
                 }
                 ForEach(viewModel.groupAndSelectOneForecastPerDay().sorted(by: { $0.0 < $1.0 }), id: \.2.time) { day, dayNumber, hour in
-                    if let windSpeedValue = hour.windSpeed?["sg"], let waveHeightValue = hour.waveHeight?["noaa"], let wavePeriodValue = hour.wavePeriod?["noaa"], let waterTemperatureValue = hour.waterTemperature?["noaa"] {
+                    if let windSpeedValue = hour.windSpeed?["sg"],
+                       let waveHeightValue = hour.waveHeight?["sg"],
+                       let wavePeriodValue = hour.wavePeriod?["sg"],
+                       let waterTemperatureValue = hour.waterTemperature?["sg"] {
                         ForecastDetailView(
                             windSpeed: windSpeedValue,
                             waveHeight: waveHeightValue,
@@ -52,16 +75,24 @@ struct ForecastView: View {
             }
             .padding()
             .ignoresSafeArea()
+            .onAppear {
+                isFavourite = favouriteSpots.contains(where: { $0.spotName?.lowercased() == spotTitle.lowercased() })
+            }
         }
+        .scrollIndicators(.hidden)
         .background(.yellowBackground)
     }
+    
+    private func toggleFavourite() {
+        if !isFavourite {
+            let favouriteSpot = Favourites(spotName: spotTitle,
+                                           fillStar: true,
+                                           latitude: latitude,
+                                           longitude: longitude)
+            if !favouriteSpots.contains(where: { $0.spotName?.lowercased() == spotTitle.lowercased() }) {
+                context.insert(favouriteSpot)
+                isFavourite = true
+            }
+        }
+    }
 }
-
-#Preview {
-    ForecastView(
-        spotTitle: .constant("Guincho"),
-        weather: [],
-        onTapExpand: {}
-    )
-}
-

@@ -9,24 +9,30 @@ import SwiftUI
 
 struct DetailCard: View {
     
-    @State var data: Double
-    @State var icon: String
+    var data: String
+    var unit: String
+    var icon: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             Image(systemName: icon)
-                .padding(.top, 20)
                 .font(.system(size: 30))
-            Text(data.roundedToString(decimalPlaces: 2))
-                .padding(.vertical, 20)
+                .foregroundColor(.iconBurgundy)
+            Text(data)
+                .foregroundColor(.iconBurgundy)
+                .bold()
+            Text(unit)
+                .foregroundColor(.iconBurgundy)
+                .bold()
         }
         .padding(.horizontal, 15)
+        .frame(width: 80, height: 120)
         .background(Color.iconBlue)
         .border(Color.black, width: 1)
         .cornerRadius(25)
         .overlay(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.black, lineWidth: 1)
+                .stroke(.barNavy, lineWidth: 2)
         )
         .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
         
@@ -34,5 +40,9 @@ struct DetailCard: View {
 }
 
 #Preview {
-    DetailCard(data: 0.0, icon: "wind")
+    DetailCard(
+        data: "0.0",
+        unit: "m/s",
+        icon: "wind"
+    )
 }

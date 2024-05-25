@@ -18,17 +18,18 @@ struct ForecastDetailView: View {
     
     var windSpeed: Double
     var waveHeight: Double
-    var wavePeriod: Double // Variable adicional
-    var waterTemperature: Double // Variable adicional
+    var wavePeriod: Double
+    var waterTemperature: Double
     var day: String
     
     var body: some View {
         HStack {
-            VStack{
+            VStack {
                 HStack {
                     Text(day)
-                        .font(.system(size: 15))
-                        .padding([.leading, .bottom],10)
+                        .font(.system(size: 20))
+                        .monospaced()
+                        .padding([.leading, .bottom], 10)
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
@@ -36,39 +37,41 @@ struct ForecastDetailView: View {
                     ForEach(0..<weatherIcons.count, id: \.self) { iconName in
                         HStack {
                             Spacer()
-                            DetailCard(
-                                data: valueForIcon(iconName: weatherIcons[iconName]) ?? 0.0,
-                                icon: weatherIcons[iconName]
-                            )
+                            VStack {
+                                DetailCard(
+                                    data: valueForIcon(iconName: weatherIcons[iconName])?.value ?? "",
+                                    unit: valueForIcon(iconName: weatherIcons[iconName])?.unit ?? "",
+                                    icon: weatherIcons[iconName]
+                                )
+                            }
                             Spacer()
                         }
                     }
                 }
             }
-            .padding(.vertical, 25)
+            .padding(.vertical, 20)
         }
         .background(Color.white)
         .cornerRadius(25)
         .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
     }
     
-    // Función para asociar un valor dependiendo del icono
-    func valueForIcon(iconName: String) -> Double? {
+    func valueForIcon(iconName: String) -> (value: String, unit: String)? {
         switch iconName {
         case "wind":
-            return windSpeed
+            return ("\(windSpeed)", "m/s")
         case "water.waves":
-            return waveHeight
+            return ("\(waveHeight)", "m")
         case "clock":
-            return wavePeriod
+            return ("\(wavePeriod)", "s")
         case "thermometer.snowflake":
-            return waterTemperature
+            return ("\(waterTemperature)", "ºC")
         default:
             return nil
         }
     }
-}
 
+}
 
 #Preview {
     ForecastDetailView(
@@ -76,6 +79,6 @@ struct ForecastDetailView: View {
         waveHeight: 2.3,
         wavePeriod: 4.5,
         waterTemperature: 1.3,
-        day: ""
+        day: "Lunes 10"
     )
 }

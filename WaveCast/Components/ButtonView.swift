@@ -12,6 +12,7 @@ struct ButtonView: View {
     let icon: String
     let title: String
     let action: () -> Void
+    let isSelected: Bool
     
     var body: some View {
         Button(action: {
@@ -20,9 +21,10 @@ struct ButtonView: View {
             VStack {
                 Image(systemName: icon)
                     .font(.system(size: 25))
-                    .foregroundColor(.black)
+                    .foregroundColor(isSelected ? .white : .black)
                     .padding(10)
-                    .background(Color.iconBlue)
+                    .padding(.horizontal, 20)
+                    .background(isSelected ? .iconBurgundy : .iconBlue)
                     .cornerRadius(15)
                     .shadow(color: .black, radius: 5, x: 0, y: 2)
                 Text(title)
@@ -36,5 +38,5 @@ struct ButtonView: View {
 }
 
 #Preview {
-    ButtonView(icon: "star", title: "Mapa", action: {})
+    ButtonView(icon: "star", title: "Mapa", action: {}, isSelected: false)
 }

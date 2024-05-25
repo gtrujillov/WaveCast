@@ -13,13 +13,11 @@ extension String {
     }
     
     func dayOfWeek() -> String {
-        let dateFormatter = ISO8601DateFormatter()
-        if let date = dateFormatter.date(from: self) {
-            let dayFormatter = DateFormatter()
-            dayFormatter.dateFormat = "EEEE"
-            dayFormatter.locale = Locale(identifier: "es_ES")
-            return dayFormatter.string(from: date).capitalized
-        }
-        return ""
+        let isoFormatter = ISO8601DateFormatter()
+        guard let date = isoFormatter.date(from: self) else { return "" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "es_ES")
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: date)
     }
 }

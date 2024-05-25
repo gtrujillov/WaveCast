@@ -11,29 +11,34 @@ import SwiftUI
 struct LessonsView: View {
     
     @State private var searchText: String = ""
-        
-        let lessons: [LessonModel] = [
-            LessonModel(icon: "water.waves", titleKey: "wave_height_title", descriptionKey: "wave_height_description"),
-            LessonModel(icon: "clock", titleKey: "wave_period_title", descriptionKey: "wave_period_description"),
-            LessonModel(icon: "wind", titleKey: "wind_title", descriptionKey: "wind_description"),
-            LessonModel(icon: "thermometer", titleKey: "water_temperature_title", descriptionKey: "water_temperature_description")
-        ]
-        
-        var filteredLessons: [LessonModel] {
-            if searchText.isEmpty {
-                return lessons
-            } else {
-                return lessons.filter { lesson in
-                    lesson.titleKey.localized.lowercased().contains(searchText.lowercased()) ||
-                    lesson.descriptionKey.localized.lowercased().contains(searchText.lowercased())
-                }
+    
+    let lessons: [LessonModel] = [
+        LessonModel(icon: "water.waves", titleKey: "wave_height_title", descriptionKey: "wave_height_description"),
+        LessonModel(icon: "clock", titleKey: "wave_period_title", descriptionKey: "wave_period_description"),
+        LessonModel(icon: "wind", titleKey: "wind_title", descriptionKey: "wind_description"),
+        LessonModel(icon: "thermometer", titleKey: "water_temperature_title", descriptionKey: "water_temperature_description")
+    ]
+    
+    var filteredLessons: [LessonModel] {
+        if searchText.isEmpty {
+            return lessons
+        } else {
+            return lessons.filter { lesson in
+                lesson.titleKey.localized.lowercased().contains(searchText.lowercased()) ||
+                lesson.descriptionKey.localized.lowercased().contains(searchText.lowercased())
             }
         }
-        
-        var body: some View {
-            NavigationView {
-                ScrollView {
-                    VStack(spacing: 20) {
+    }
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVStack(spacing: 20) {
+                    if filteredLessons.isEmpty {
+                        Text("No se encontraron resultados")
+                            .foregroundColor(.gray)
+                            .padding()
+                    } else {
                         ForEach(filteredLessons) { lesson in
                             LessonsCardView(
                                 icon: lesson.icon,
@@ -42,12 +47,14 @@ struct LessonsView: View {
                             )
                         }
                     }
-                    .padding()
                 }
-                .background(Color.yellowBackground)
-                .searchable(text: $searchText, prompt: "Buscar...")
+                .padding()
+                .padding(.bottom, 120)
             }
+            .background(.yellowBackground)
+            .searchable(text: $searchText, prompt: "Buscar")
         }
+    }
 }
 
 #Preview {

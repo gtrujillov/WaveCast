@@ -21,19 +21,11 @@ struct NavigationBarView: View {
                         .navigationTitle(title)
                         .navigationBarTitleDisplayMode(.automatic)
                 case 1:
-                    EmptyView()
-                        .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.automatic)
-                case 2:
                     FavouriteView()
                         .navigationTitle(title)
                         .navigationBarTitleDisplayMode(.automatic)
-                case 3:
+                case 2:
                     LessonsView()
-                        .navigationTitle(title)
-                        .navigationBarTitleDisplayMode(.automatic)
-                case 4:
-                    EmptyView()
                         .navigationTitle(title)
                         .navigationBarTitleDisplayMode(.automatic)
                 default:

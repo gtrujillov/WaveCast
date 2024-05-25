@@ -11,21 +11,18 @@ struct TabBarView: View {
     
     let iconos = [
         "mappin.circle",
-        "magnifyingglass.circle",
         "star.circle",
-        "book.circle",
-        "info.circle"
+        "book.circle"
     ]
     
     let titulos = [
-           "Mapa",
-           "Buscar",
-           "Favoritos",
-           "Lecciones",
-           "Info"
-       ]
+        "Mapa",
+        "Favoritos",
+        "Lecciones"
+    ]
     
     @Binding var indexSelected: Int
+    @State private var isSelected: [Bool] = [false, false, false]
     
     var body: some View {
         VStack(spacing: 0) {
@@ -33,9 +30,12 @@ struct TabBarView: View {
             HStack(spacing: 0) {
                 ForEach(0..<iconos.count, id: \.self) { numbers in
                     Spacer()
-                    ButtonView(icon: iconos[numbers], title: titulos[numbers]) {
-                                            self.indexSelected = numbers
-                                        }
+                    ButtonView(
+                        icon: iconos[numbers],
+                        title: titulos[numbers],
+                        action: { self.selectButton(at: numbers) },
+                        isSelected: self.isSelected[numbers]
+                    )
                     Spacer()
                 }
             }
@@ -47,7 +47,14 @@ struct TabBarView: View {
         }
         .padding(5)
     }
+    
+    private func selectButton(at index: Int) {
+        isSelected = Array(repeating: false, count: isSelected.count)
+        isSelected[index] = true
+        self.indexSelected = index
+    }
 }
+
 
 #Preview {
     TabBarView(indexSelected: .constant(0))
