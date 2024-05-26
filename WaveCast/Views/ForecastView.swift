@@ -11,6 +11,8 @@ import CoreLocation
 
 struct ForecastView: View {
     
+    // MARK: - Properties
+    
     @Environment(\.modelContext) var context
     @Environment(\.dismiss) private var dismiss
     @Query(sort: \Favourites.spotName) var favouriteSpots: [Favourites] = []
@@ -23,6 +25,8 @@ struct ForecastView: View {
     var longitude: CLLocationDegrees
     
     var onTapExpand: () -> Void
+    
+    // MARK: - Initialization
     
     init(
         spotTitle: Binding<String>,
@@ -49,7 +53,7 @@ struct ForecastView: View {
                         .padding(20)
                     Spacer()
                     Button(action: {
-                        toggleFavourite()
+                        toggleFavourite() // Toggle favourite action
                     }) {
                         Image(systemName: isFavourite ? "star.fill" : "star")
                             .font(.system(size: 30))
@@ -57,10 +61,10 @@ struct ForecastView: View {
                     }
                 }
                 ForEach(viewModel.groupAndSelectOneForecastPerDay().sorted(by: { $0.0 < $1.0 }), id: \.2.time) { day, dayNumber, hour in
-                    if let windSpeedValue = hour.windSpeed?["sg"],
-                       let waveHeightValue = hour.waveHeight?["sg"],
-                       let wavePeriodValue = hour.wavePeriod?["sg"],
-                       let waterTemperatureValue = hour.waterTemperature?["sg"] {
+                    if let windSpeedValue = hour.windSpeed?["sg"], // Wind speed value
+                       let waveHeightValue = hour.waveHeight?["sg"], // Wave height value
+                       let wavePeriodValue = hour.wavePeriod?["sg"], // Wave period value
+                       let waterTemperatureValue = hour.waterTemperature?["sg"] { // Water temperature value
                         ForecastDetailView(
                             windSpeed: windSpeedValue,
                             waveHeight: waveHeightValue,
@@ -76,13 +80,16 @@ struct ForecastView: View {
             .padding()
             .ignoresSafeArea()
             .onAppear {
-                isFavourite = favouriteSpots.contains(where: { $0.spotName?.lowercased() == spotTitle.lowercased() })
+                isFavourite = favouriteSpots.contains(where: { $0.spotName?.lowercased() == spotTitle.lowercased() }) // Check if spot is favourite
             }
         }
         .scrollIndicators(.hidden)
         .background(.yellowBackground)
     }
     
+    // MARK: - Private Methods
+    
+    // Function to toggle favourite status
     private func toggleFavourite() {
         if !isFavourite {
             let favouriteSpot = Favourites(spotName: spotTitle,
@@ -91,8 +98,9 @@ struct ForecastView: View {
                                            longitude: longitude)
             if !favouriteSpots.contains(where: { $0.spotName?.lowercased() == spotTitle.lowercased() }) {
                 context.insert(favouriteSpot)
-                isFavourite = true
+                isFavourite = true // Update favourite status
             }
         }
     }
 }
+

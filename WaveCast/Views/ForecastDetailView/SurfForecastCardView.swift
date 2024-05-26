@@ -40,7 +40,7 @@ struct SurfForecastCardView: View {
             HStack() {
                 Button(action: {
                     Task {
-                        await viewModel.fetchCoordinatesAndWeather(latitud: latitude, longitud: longitude)
+                        await viewModel.fetchCoordinatesAndWeather(latitude: latitude, longitude: longitude)
                     }
                 }) {
                     Image(systemName: "arrow.up.left.and.arrow.down.right")

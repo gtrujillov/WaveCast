@@ -8,9 +8,16 @@
 import Foundation
 import SwiftUI
 
+// MARK: - RoundedCorner
 struct RoundedCorner: Shape {
+    
+    // MARK: Properties
+    // Radius of the corner
     var cornerRadius: CGFloat
+    // Specific corners to round
     var corners: UIRectCorner
+    
+    // MARK: Path
     
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(
@@ -22,7 +29,10 @@ struct RoundedCorner: Shape {
     }
 }
 
+// MARK: - Shape Extension
 extension Shape {
+    
+    // Creates a shape with rounded corners
     func roundedCorner(cornerRadius: CGFloat, corners: UIRectCorner) -> some Shape {
         RoundedCorner(cornerRadius: cornerRadius, corners: corners)
     }

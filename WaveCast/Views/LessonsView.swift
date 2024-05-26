@@ -10,8 +10,9 @@ import SwiftUI
 
 struct LessonsView: View {
     
-    @State private var searchText: String = ""
+    @State private var searchText: String = "" // Search text
     
+    // Array of lesson models
     let lessons: [LessonModel] = [
         LessonModel(icon: "water.waves", titleKey: "wave_height_title", descriptionKey: "wave_height_description"),
         LessonModel(icon: "clock", titleKey: "wave_period_title", descriptionKey: "wave_period_description"),
@@ -19,6 +20,7 @@ struct LessonsView: View {
         LessonModel(icon: "thermometer", titleKey: "water_temperature_title", descriptionKey: "water_temperature_description")
     ]
     
+    // Filtered lesson models based on search text
     var filteredLessons: [LessonModel] {
         if searchText.isEmpty {
             return lessons
@@ -35,7 +37,7 @@ struct LessonsView: View {
             ScrollView {
                 LazyVStack(spacing: 20) {
                     if filteredLessons.isEmpty {
-                        Text("No se encontraron resultados")
+                        Text("No se encontraron resultados") // No results text
                             .foregroundColor(.gray)
                             .padding()
                     } else {
@@ -58,5 +60,6 @@ struct LessonsView: View {
 }
 
 #Preview {
-    LessonsView()
+    LessonsView() 
 }
+

@@ -8,14 +8,15 @@
 import Foundation
 
 class ForecastViewModel: ObservableObject {
+    // Published property to hold weather forecast data
     @Published var weather: [WeatherResponse.Hour] = []
     
-    // Método para actualizar los datos meteorológicos y filtrar solo los pronósticos a las 12 PM
+    // Method to update weather data and filter only forecasts at 12 PM
     func updateWeatherData(_ weather: [WeatherResponse.Hour]) {
         let calendar = Calendar.current
         let isoFormatter = ISO8601DateFormatter()
         
-        // Filtrar solo las entradas a las 12 PM de cada día
+        // Filter only entries at 12 PM of each day
         let filteredWeather = weather.filter { hour in
             if let date = isoFormatter.date(from: hour.time) {
                 return calendar.component(.hour, from: date) == 12
@@ -26,39 +27,42 @@ class ForecastViewModel: ObservableObject {
         self.weather = filteredWeather
     }
     
-    // Método para agrupar y seleccionar un pronóstico por día
+    // Method to group and select one forecast per day
     func groupAndSelectOneForecastPerDay() -> [(String, Int, WeatherResponse.Hour)] {
         var groupedAndSelectedForecasts: [(String, Int, WeatherResponse.Hour)] = []
         let sortedWeather = weather.sorted(by: { $0.time < $1.time })
         let calendar = Calendar.current
         
-        // Array con los nombres de los días de la semana en español
+        // Array with the names of the days of the week in Spanish
         let spanishWeekdaySymbols = [
-            "Domingo",
             "Lunes",
             "Martes",
             "Miércoles",
             "Jueves",
             "Viernes",
-            "Sábado"
+            "Sábado",
+            "Domingo"
         ]
-        
-        // Iterar sobre cada hora del pronóstico
+
+        // Iterate over each hour of the forecast
         for hour in sortedWeather {
-            // Intentar convertir la cadena de fecha/hora en un objeto Date utilizando el formateador ISO 8601
+            // Try to convert the date/time string into a Date object using the ISO 8601 formatter
             if let date = ISO8601DateFormatter().date(from: hour.time) {
                 let dayNumber = calendar.component(.day, from: date)
                 let weekday = calendar.component(.weekday, from: date)
-                let dayName = spanishWeekdaySymbols[weekday - 1] // Restamos 1 porque los días de la semana comienzan desde 1
+                // Subtract 1 because weekdays start from 1
+                let dayName = spanishWeekdaySymbols[weekday - 1]
                 
+                // If the day hasn't been added yet, add it to the grouped forecasts
                 if !groupedAndSelectedForecasts.contains(where: { $0.0 == dayName }) {
                     groupedAndSelectedForecasts.append((dayName, dayNumber, hour))
                 }
             } else {
-                print("No se pudo convertir la cadena a fecha")
+                print("Could not convert string to date")
             }
         }
         
         return groupedAndSelectedForecasts
     }
 }
+

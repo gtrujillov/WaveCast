@@ -8,23 +8,28 @@
 import Foundation
 import SwiftUI
 
+// MARK: - ButtonView
 struct ButtonView: View {
+    
+    // MARK: Properties
+    
     let icon: String
     let title: String
     let action: () -> Void
     let isSelected: Bool
     
     var body: some View {
+        // Button with icon and title
         Button(action: {
             action()
         }) {
             VStack {
                 Image(systemName: icon)
                     .font(.system(size: 25))
-                    .foregroundColor(isSelected ? .white : .black)
+                    .foregroundColor(isSelected ? .white : .black) // Adjusts icon color based on selection state
                     .padding(10)
                     .padding(.horizontal, 20)
-                    .background(isSelected ? .iconBurgundy : .iconBlue)
+                    .background(isSelected ? .iconBurgundy : .iconBlue) // Sets background color based on selection state
                     .cornerRadius(15)
                     .shadow(color: .black, radius: 5, x: 0, y: 2)
                 Text(title)
@@ -38,5 +43,6 @@ struct ButtonView: View {
 }
 
 #Preview {
+    // Preview for ButtonView with example data
     ButtonView(icon: "star", title: "Mapa", action: {}, isSelected: false)
 }

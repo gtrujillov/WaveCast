@@ -11,9 +11,11 @@ import CoreLocation
 
 class NetworkManagerTests: XCTestCase {
     
-    // Test para verificar que la decodificación de WeatherResponse funciona correctamente
+    // MARK: - Test Methods
+    
+    // Test to verify that WeatherResponse decoding works correctly
     func testWeatherResponseDecoding() throws {
-        // Mock data para simular una respuesta JSON
+        // Mock data to simulate a JSON response
         let json = """
          {
              "hours": [
@@ -38,19 +40,19 @@ class NetworkManagerTests: XCTestCase {
          }
          """.data(using: .utf8)!
         
-        // Decodifica el JSON en un objeto WeatherResponse
+        // Decode the JSON into a WeatherResponse object
         let decoder = JSONDecoder()
         let weatherResponse = try decoder.decode(WeatherResponse.self, from: json)
         
-        // Verifica que la decodificación sea exitosa
+        // Verify that decoding is successful
         XCTAssertEqual(weatherResponse.hours.count, 1)
         XCTAssertEqual(weatherResponse.meta.cost, 1)
         XCTAssertEqual(weatherResponse.meta.params, ["windSpeed", "waveHeight", "wavePeriod", "waterTemperature"])
     }
     
-    // Test para verificar que la codificación de WeatherResponse funciona correctamente
+    // Test to verify that WeatherResponse encoding works correctly
     func testWeatherResponseEncoding() throws {
-        // Crea un objeto WeatherResponse con datos de ejemplo
+        // Create a WeatherResponse object with sample data
         let weatherResponse = WeatherResponse(
             hours: [
                 WeatherResponse.Hour(
@@ -73,19 +75,20 @@ class NetworkManagerTests: XCTestCase {
             )
         )
         
-        // Codifica el objeto WeatherResponse en JSON
+        // Encode the WeatherResponse object into JSON
         let encoder = JSONEncoder()
         let jsonData = try encoder.encode(weatherResponse)
         
-        // Decodifica el JSON nuevamente en un objeto WeatherResponse para comparar
+        // Decode the JSON back into a WeatherResponse object for comparison
         let decodedWeatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: jsonData)
         
-        // Verifica que la codificación y decodificación sean consistentes
+        // Verify that encoding and decoding are consistent
         XCTAssertEqual(decodedWeatherResponse.hours.count, 1)
         XCTAssertEqual(decodedWeatherResponse.meta.cost, 1)
         XCTAssertEqual(decodedWeatherResponse.meta.params, ["windSpeed", "waveHeight", "wavePeriod", "waterTemperature"])
     }
     
+    // Test for getting weather data with decoding error
     func testGetWeather_DecodingError() async {
         let jsonString = "{}"
         let data = jsonString.data(using: .utf8)
@@ -100,6 +103,7 @@ class NetworkManagerTests: XCTestCase {
         }
     }
     
+    // Test for getting weather data with unknown error
     func testGetWeather_UnknownError() async {
         let mockSession = MockURLSession(data: nil, urlResponse: nil, error: NSError(domain: "Test", code: 1, userInfo: nil))
         let networkManager = NetworkManager(session: mockSession)
@@ -112,3 +116,4 @@ class NetworkManagerTests: XCTestCase {
         }
     }
 }
+

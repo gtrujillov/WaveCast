@@ -7,14 +7,19 @@
 
 import SwiftUI
 
+// MARK: - NavigationBarView
 struct NavigationBarView: View {
     
+    // MARK: Properties
+    // Title for the navigation bar
     var title: String
+    // Binding to track the selected index
     @Binding var indexSelected: Int
     
     var body: some View {
         NavigationView {
             VStack {
+                // Switch statement to display different views based on the selected index
                 switch indexSelected {
                 case 0:
                     MapView()
@@ -29,12 +34,14 @@ struct NavigationBarView: View {
                         .navigationTitle(title)
                         .navigationBarTitleDisplayMode(.automatic)
                 default:
-                    Text("")
+                    Text("") 
                 }
             }
         }
     }
 }
+
 #Preview {
+    // Preview for NavigationBarView with example data
     NavigationBarView(title: "", indexSelected: .constant(0))
 }

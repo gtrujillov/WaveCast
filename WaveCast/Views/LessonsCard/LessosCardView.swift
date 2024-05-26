@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-import SwiftUI
-
+// View for displaying lessons card
 struct LessonsCardView: View {
     
     var icon: String
@@ -17,16 +16,19 @@ struct LessonsCardView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            
+            // Icon and title
             HStack {
                 Image(systemName: icon)
                     .foregroundColor(.iconBurgundy)
                 Text(title)
                     .bold()
-                    .monospaced()            }
+                    .monospaced()
+            }
+            // Description
             Text(description)
                 .multilineTextAlignment(.leading)
         }
+        // Styling
         .padding(16)
         .background(Color.white)
         .cornerRadius(25)
@@ -34,6 +36,7 @@ struct LessonsCardView: View {
     }
 }
 
+// Preview for LessonsCardView
 #Preview {
     LessonsCardView(
         icon: "water.waves",

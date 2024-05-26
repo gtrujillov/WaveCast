@@ -7,9 +7,13 @@
 
 import Foundation
 
+// MARK: - LessonModel
 struct LessonModel: Identifiable {
+    
+    // MARK: Properties
+    
     let id = UUID()
     let icon: String
     let titleKey: String
-    let descriptionKey: String
+    let descriptionKey: String 
 }

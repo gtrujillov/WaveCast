@@ -26,6 +26,7 @@ struct WeatherResponse: Codable {
             case time, windSpeed, waveHeight, wavePeriod, waterTemperature
         }
         
+        // Initialize an Hour object with provided data
         init(
             time: String,
             windSpeed: [String: Double]?,
@@ -42,6 +43,7 @@ struct WeatherResponse: Codable {
             self.dayOfWeek = time.dayOfWeek()
         }
         
+        // Initialize an Hour object from decoder
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let time = try container.decode(String.self, forKey: .time)
@@ -49,9 +51,10 @@ struct WeatherResponse: Codable {
             let waveHeight = try container.decodeIfPresent([String: Double].self, forKey: .waveHeight)
             let wavePeriod = try container.decodeIfPresent([String: Double].self, forKey: .wavePeriod)
             let waterTemperature = try container.decodeIfPresent([String: Double].self, forKey: .waterTemperature)
-            self.init(time: time, windSpeed: windSpeed, waveHeight: waveHeight,wavePeriod: wavePeriod,waterTemperature: waterTemperature)
+            self.init(time: time, windSpeed: windSpeed, waveHeight: waveHeight, wavePeriod: wavePeriod, waterTemperature: waterTemperature)
         }
         
+        // Encode the Hour object
         func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(time, forKey: .time)
@@ -71,10 +74,11 @@ struct WeatherResponse: Codable {
         let lng: Double
         let params: [String]
         let requestCount: Int
-        let start: String
+        let start: String 
         
         enum CodingKeys: String, CodingKey {
             case cost, dailyQuota, end, lat, lng, params, requestCount, start
         }
     }
 }
+

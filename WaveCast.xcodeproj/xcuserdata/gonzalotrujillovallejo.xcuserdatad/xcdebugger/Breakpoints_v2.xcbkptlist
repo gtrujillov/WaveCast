@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3FDC8A47-3BBE-4B1F-BA88-30F987651914"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WaveCast/Views/FavouriteView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "3FDC8A47-3BBE-4B1F-BA88-30F987651914 - 1e4b1a502e5a6e2e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (WaveCast.Favourites) -&gt; WaveCast.SurfForecastCardView in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;WaveCast.Favourites&gt;, SwiftData.PersistentIdentifier, WaveCast.SurfForecastCardView&gt;, SwiftUI.Spacer)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0 in WaveCast.FavouriteView.body.getter : some"
-                  moduleName = "WaveCast"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gonzalotrujillovallejo/Documents/Universidad/TFG-APP/WaveCast/WaveCast/Views/FavouriteView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "148">
-               </Location>
-               <Location
-                  uuid = "3FDC8A47-3BBE-4B1F-BA88-30F987651914 - 1e4b1a502e5a6e2e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (WaveCast.Favourites) -&gt; WaveCast.SurfForecastCardView in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;WaveCast.Favourites&gt;, SwiftData.PersistentIdentifier, WaveCast.SurfForecastCardView&gt;, SwiftUI.Spacer)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0 in WaveCast.FavouriteView.body.getter : some"
-                  moduleName = "WaveCast"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gonzalotrujillovallejo/Documents/Universidad/TFG-APP/WaveCast/WaveCast/Views/FavouriteView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "164">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "56A42D39-8216-4E1F-8CA1-58879FD9087C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

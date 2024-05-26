@@ -10,11 +10,16 @@ import SwiftUI
 import SwiftData
 
 struct FavouriteView: View {
+    
+    // MARK: - Properties
     @Environment(\.modelContext) var context
     @State private var searchText = ""
     @State private var isDeleted: Bool?
     @Query(sort: \Favourites.spotName) var favouriteSpots: [Favourites] = []
     
+    // MARK: - Computed Properties
+    
+    // Filtered favourite spots based on search text
     var filteredFavourites: [Favourites] {
         if searchText.isEmpty {
             return favouriteSpots
@@ -22,6 +27,7 @@ struct FavouriteView: View {
             return favouriteSpots.filter { $0.localizedCaseInsensitiveContains(searchText) }
         }
     }
+    
     
     var body: some View {
         NavigationView {
@@ -51,17 +57,22 @@ struct FavouriteView: View {
             .scrollIndicators(.hidden)
             .background(.yellowBackground)
         }
-        .searchable(text: $searchText, prompt: "Buscar")
+        .searchable(text: $searchText, prompt: "Buscar") 
         .onChange(of: searchText) { newValue in
             searchFavourites(newValue)
         }
     }
     
+    // MARK: - Private Methods
+    
+    // Function to handle search functionality
     private func searchFavourites(_ searchText: String) {
         self.searchText = searchText
     }
 }
 
+// MARK: - Preview
 #Preview {
     FavouriteView()
 }
+
